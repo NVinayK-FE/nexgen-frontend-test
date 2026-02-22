@@ -17,9 +17,6 @@ const HeaderFooterCard: React.FC<HeaderFooterCardProps> = ({ children }) => {
                     height={20}
                     priority
                 />
-                <p className="text-sm font-light tracking-wide">
-                    Sign in to your account
-                </p>
             </div>
 
             {children && (

@@ -1,0 +1,8 @@
+{
+    "login-form": {
+        "title": "Sign in to your account",
+        "email": "Email",
+        "password": "Password",
+        "button": "SUBMIT"
+    }
+}

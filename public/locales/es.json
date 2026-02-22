@@ -1,0 +1,8 @@
+{
+    "login-form": {
+        "title": "Inicia sesión en tu cuenta",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "button": "ENVIAR"
+    }
+}

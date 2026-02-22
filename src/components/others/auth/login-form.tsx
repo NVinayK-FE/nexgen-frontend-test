@@ -4,6 +4,7 @@ import FormPassword from "@/components/common/core/form/form-password";
 import FormInput from "@/components/common/core/form/form-input";
 import ErrorMessage from "@/components/common/error/error-message";
 import { LoginFormData, LoginFormErrors } from "@/utils/auth/login-util";
+import { useTranslations } from "@/hooks/useTranslations";
 
 interface LoginFormProps {
     onSubmit: (email: string, password: string) => void;
@@ -19,6 +20,15 @@ const LoginForm: React.FC<LoginFormProps> = ({
     const [errors, setErrors] = useState<LoginFormErrors>({});
     const [submitError, setSubmitError] = useState<string>("");
 
+    const { t, isLoading } = useTranslations("login-form");
+
+    if (isLoading) {
+        return (
+            <div className="text-sm font-light tracking-wide">
+                Loading...
+            </div>
+        );
+    }
 
     const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -31,10 +41,13 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
     return (
         <div>
+            <p className="text-sm font-light tracking-wide">
+                {t["title"]}
+            </p>
             <ErrorMessage message={submitError} />
             <form onSubmit={onSubmitHandler} className="relative z-10 space-y-6">
                 <FormInput
-                    label="Email"
+                    label={t["email"]}
                     type="email"
                     id="email"
                     name="email"
@@ -46,7 +59,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                 {/* 
                 <div>
                     <FormPassword
-                        label="Password"
+                        label={t["password"]}
                         id="password"
                         name="password"
                         placeholder="••••••••"
@@ -62,7 +75,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                     )}
                 </div> */}
 
-                <Button text="SUBMIT" />
+                <Button text={t["button"]} />
             </form>
         </div>
     );
