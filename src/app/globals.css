@@ -24,24 +24,12 @@
   }
 } */
 
-@utility theme-page-bg {
-  background: var(--page-bg);
+@utility theme-page {
+  @apply bg-(--page-bg) text-(--page-fg);
 }
 
-@utility theme-page-fg {
-  color: var(--page-fg);
-}
-
-@utility theme-card-bg {
-  background: var(--card-bg);
-}
-
-@utility theme-card-border {
-  border-color: var(--card-border);
-}
-
-@utility theme-card-fg {
-  color: var(--card-fg);
+@utility theme-card {
+  @apply bg-(--card-bg) text-(--card-fg) border border-(--card-border) p-8 sm:p-4 md:p-6 rounded-2xl;
 }
 
 @utility theme-card-footer-fg {

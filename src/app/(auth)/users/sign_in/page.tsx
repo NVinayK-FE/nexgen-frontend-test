@@ -9,7 +9,7 @@ const LoginPage: React.FC = () => {
     }
 
     return (
-        <div className="min-h-screen w-full theme-page-bg theme-page-fg flex items-center justify-center">
+        <div className="theme-page min-h-screen w-full flex items-center justify-center">
             <HeaderFooterCard>
                 <LoginForm onSubmit={onSubmit} />
             </HeaderFooterCard>
