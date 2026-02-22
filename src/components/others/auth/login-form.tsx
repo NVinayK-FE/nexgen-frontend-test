@@ -32,7 +32,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
     return (
         <div>
             <ErrorMessage message={submitError} />
-            <p>Login form</p>
             <form onSubmit={onSubmitHandler} className="relative z-10 space-y-6">
                 <FormInput
                     label="Email"

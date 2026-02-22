@@ -1,9 +1,10 @@
 {
     "name": "light",
     "colors": {
-        "--background": "#ffffff",
-        "--foreground": "#171717",
-        "--primary": "#171717",
-        "--secondary": "#171717"
+        "--page-bg": "#ffffff",
+        "--page-fg": "#171717",
+        "--card-bg": "#f8f8f8",
+        "--card-border": "#e5e5e5",
+        "--card-fg": "#171717"
     }
 }

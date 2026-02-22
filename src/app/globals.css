@@ -1,33 +1,53 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --primary: #171717;
-  --secondary: #171717;
+  --page-bg: #020617;
+  --page-fg: #ededed;
+  --card-bg: #1E293B;
+  --card-border: #334155;
+  --card-fg: #90A1B9;
+  --card-footer-fg: #62748E;
 }
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-
 }
-
+/* 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --primary: #ededed;
-    --secondary: #ededed;
+    --page-bg: var(--page-bg);
+    --page-fg: var(--page-fg);
+    --card-bg: var(--card-bg);
+    --card-border: var(--card-border);
+    --card-fg: var(--card-fg);
   }
+} */
+
+@utility theme-page-bg {
+  background: var(--page-bg);
+}
+
+@utility theme-page-fg {
+  color: var(--page-fg);
+}
+
+@utility theme-card-bg {
+  background: var(--card-bg);
+}
+
+@utility theme-card-border {
+  border-color: var(--card-border);
+}
+
+@utility theme-card-fg {
+  color: var(--card-fg);
+}
+
+@utility theme-card-footer-fg {
+  color: var(--card-footer-fg);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }

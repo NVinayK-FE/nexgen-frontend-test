@@ -6,7 +6,7 @@ const Card: React.FC<CardProps> = ({
   children,
 }: CardProps) => {
   return (
-    <div className="p-5 bg-[#162032] border border-[#1E2D42] rounded-2xl">
+    <div className="theme-card-bg theme-card-fg p-8 sm:p-4 md:p-6 rounded-2xl">
       {children}
     </div>
   );

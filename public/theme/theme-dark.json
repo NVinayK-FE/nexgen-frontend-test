@@ -1,9 +1,11 @@
 {
     "name": "dark",
     "colors": {
-        "--background": "#0a0a0a",
-        "--foreground": "#ededed",
-        "--primary": "#ededed",
-        "--secondary": "#ededed"
+        "--page-bg": "#020617",
+        "--page-fg": "#ededed",
+        "--card-bg": "#202A38",
+        "--card-border": "#334155",
+        "--card-fg": "#90A1B9",
+        "--card-footer-fg": "#62748E"
     }
 }
