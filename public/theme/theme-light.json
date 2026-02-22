@@ -1,0 +1,9 @@
+{
+    "name": "light",
+    "colors": {
+        "--background": "#ffffff",
+        "--foreground": "#171717",
+        "--primary": "#171717",
+        "--secondary": "#171717"
+    }
+}
