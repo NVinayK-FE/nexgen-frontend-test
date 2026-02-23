@@ -1,7 +1,7 @@
 "use client";
 
 import HeaderFooterCard from '@/components/common/card/header-footer-card';
-import LoginForm from '@others/auth/login-form';
+import LoginForm from '@/components/others/auth/login/login-form';
 
 const LoginPage: React.FC = () => {
     const onSubmit = (email: string, password: string) => {

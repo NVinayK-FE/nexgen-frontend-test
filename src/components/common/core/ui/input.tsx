@@ -1,41 +1,47 @@
-import React, { type HTMLInputTypeAttribute } from 'react';
+import type * as React from 'react';
 
-interface InputProps {
-    type: HTMLInputTypeAttribute;
-    id?: string;
-    name?: string;
-    placeholder?: string;
+import { cn } from '@/lib/cn';
+
+interface InputProps extends React.ComponentProps<'input'> {
+    type: React.HTMLInputTypeAttribute;
+    inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"];
     value?: string;
+    placeholder?: string;
+    pattern?: string;
+    className?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    required?: boolean;
 }
 
-const Input: React.FC<InputProps> = ({
-    type,
-    id,
-    name,
-    placeholder = "you@nexgenguest.com",
+function Input({
+    type = "text",
+    inputMode = "text",
     value,
+    placeholder = '',
+    pattern,
+    className = '',
     onChange,
-    // required = false
-}) => {
+    ...props
+}: InputProps) {
     return (
         <input
             type={type}
-            id={id || 'input_id'}
-            name={name || 'input_name'}
-            placeholder={placeholder}
             value={value}
-            onChange={onChange}
-            className="w-full px-4 py-3.5 rounded-xl text-sm 
+            className={cn(
+                `w-full px-4 py-3.5 rounded-xl text-sm 
                bg-slate-800 border border-slate-600 
                text-slate-50 placeholder:text-slate-500 
                focus:outline-none focus:border-slate-400 
                focus:bg-slate-900 focus:ring-4 focus:ring-slate-400/10 
-               transition-all duration-300"
-        // required={required}
+               transition-all duration-300`,
+                className,
+            )}
+            inputMode={inputMode}
+            onChange={onChange}
+            placeholder={placeholder}
+            pattern={pattern}
+            {...props}
         />
     );
-};
+}
 
 export default Input;

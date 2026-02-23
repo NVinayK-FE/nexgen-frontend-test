@@ -1,6 +1,6 @@
 "use client"
 
-import { useLocaleQuery } from "@/lib/useLocaleQuery";
+import { useLocaleQuery } from "@/services/useLocaleQuery";
 import { useLocaleStore } from "@/stores/useLocaleStore";
 
 export const useTranslations = (namespace: string) => {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useThemeQuery } from "@/lib/useThemeQuery";
+import { useThemeQuery } from "@/services/useThemeQuery";
 import { useThemeStore } from "@/stores/useThemeStore";
 
 interface ThemeSwitcherProps {
