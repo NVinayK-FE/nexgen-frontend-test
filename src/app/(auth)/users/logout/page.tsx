@@ -3,25 +3,22 @@
 import BasicPage from '@core/page/basic-page';
 import BrandCard from '@common/card/brand-card';
 import { useTranslations } from '@/hooks/useTranslations';
-import LoginForm from '@/components/others/auth/login/login-form';
+import Logout from '@/components/others/auth/logout/logout';
 
-/**
- * LoginPage component for user authentication.
- */
-const LoginPage: React.FC = () => {
+const LogoutPage: React.FC = () => {
     const { t } = useTranslations("header");
 
-    const onSubmit = (email: string, password: string) => {
-        console.log(email, password);
+    const goToLoginPage = () => {
+        console.log("Navigating to login page");
     }
 
     return (
         <BasicPage>
             <BrandCard imageTitle={t["logo"]}>
-                <LoginForm onSubmit={onSubmit} />
+                <Logout onClickHandler={goToLoginPage} />
             </BrandCard>
         </BasicPage>
     )
 };
 
-export default LoginPage;
+export default LogoutPage;

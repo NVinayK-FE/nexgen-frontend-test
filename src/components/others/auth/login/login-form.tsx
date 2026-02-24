@@ -1,18 +1,14 @@
 import React, { useState } from "react";
-import { Button } from "@core/ui/button";
-import FormPassword from "@/components/common/core/form/form-password";
-import FormInput from "@/components/common/core/form/form-input";
-import ErrorMessage from "@/components/common/error/error-message";
-import { LoginFormData, LoginFormErrors } from "@/utils/auth/login-util";
-import { useTranslations } from "@/hooks/useTranslations";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@core/form/form";
-import Input from "@/components/common/core/ui/input";
-import { Eye, EyeOff } from "lucide-react";
 import { useForm } from 'react-hook-form';
-import { getLoginFormSchema } from "./login-form.schema";
+import { Eye, EyeOff } from "lucide-react";
 import { zodResolver } from '@hookform/resolvers/zod';
 
-
+import { Button } from "@core/ui/button";
+import Input from "@/components/common/core/ui/input";
+import { LoginFormData } from "@/utils/auth/login-util";
+import { useTranslations } from "@/hooks/useTranslations";
+import { getLoginFormSchema } from "@/components/others/auth/login/login-form.schema";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@core/form/form";
 
 interface LoginFormProps {
     onSubmit: (email: string, password: string) => void;
@@ -21,15 +17,24 @@ interface LoginFormProps {
 const LoginForm: React.FC<LoginFormProps> = ({
     onSubmit
 }: LoginFormProps) => {
-    const [showPassword, setShowPassword] = useState(false);
-    const [formData, setFormData] = useState<LoginFormData>({
-        email: '',
-        password: ''
-    });
-    const [errors, setErrors] = useState<LoginFormErrors>({});
-    const [submitError, setSubmitError] = useState<string>("");
-
     const { t, isLoading } = useTranslations("login-form");
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const messages = {
+        emailRequired: t["email-required"],
+        emailInvalid: t["email-invalid"],
+        passwordRequired: t["password-required"],
+    };
+
+    const form = useForm<LoginFormData>({
+        resolver: zodResolver(getLoginFormSchema({
+            email: { requiredMsg: messages.emailRequired, invalidMsg: messages.emailInvalid },
+            password: { requiredMsg: messages.passwordRequired }
+        })),
+        defaultValues: { email: '', password: '' },
+        mode: 'onBlur',
+    });
 
     if (isLoading) {
         return (
@@ -38,15 +43,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
             </div>
         );
     }
-
-    const form = useForm<LoginFormData>({
-        resolver: zodResolver(getLoginFormSchema({
-            email: { requiredMsg: t['email-required'], invalidMsg: t['email-invalid'] },
-            password: { requiredMsg: t['password-required'] }
-        })),
-        defaultValues: { email: '', password: '' },
-        mode: 'onBlur',
-    });
 
     const onSubmitHandler = async (data: LoginFormData) => {
         // const res = await login({
@@ -78,7 +74,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
     };
 
     return (
-        <Form {...form}>
+        <Form {...form} data-testid="login-form-testid">
             <form
                 onSubmit={form.handleSubmit(onSubmitHandler)}
                 className="space-y-6"
@@ -102,7 +98,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
                                 </FormLabel>
                                 <FormControl>
                                     <Input
-                                        className="bg-accent-50 border border-neutral-light-accent shadow-none py-2.5 px-3"
                                         type="email"
                                         placeholder="you@example.com"
                                         {...field}
@@ -126,7 +121,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
                                 <div className="relative">
                                     <FormControl>
                                         <Input
-                                            className="bg-accent-50 border border-neutral-light-accent shadow-none py-2.5 pl-3 pr-8"
                                             type={showPassword ? 'text' : 'password'}
                                             placeholder="********"
                                             onInvalid={(e) => e.preventDefault()}

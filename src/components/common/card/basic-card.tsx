@@ -1,3 +1,7 @@
+/**
+ * 
+ */
+
 import type React from "react";
 
 import Card from "@/components/common/core/card/card";
@@ -5,17 +9,21 @@ import CardIcon from "@/components/common/core/card/card-icon";
 import CardTitle from "@/components/common/core/card/card-title";
 import CardDescription from "@/components/common/core/card/card-description";
 
-interface TitleDescriptionCardProps {
+interface IBasicCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
 }
 
-const TitleDescriptionCard: React.FC<TitleDescriptionCardProps> = ({
+/**
+ * The BasicCard component is a simple card that displays an icon, a title, and a description.
+ * It is used for displaying basic information in a card format.
+ */
+const BasicCard: React.FC<IBasicCardProps> = ({
   icon,
   title,
   description,
-}: TitleDescriptionCardProps) => {
+}: IBasicCardProps) => {
   return (
     <Card>
       <div className="flex gap-4">
@@ -29,4 +37,4 @@ const TitleDescriptionCard: React.FC<TitleDescriptionCardProps> = ({
   );
 };
 
-export default TitleDescriptionCard;
+export default BasicCard;

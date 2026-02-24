@@ -6,7 +6,7 @@ interface ThemeState {
 }
 
 export const useThemeStore = create<ThemeState>((set) => ({
-    currentTheme: "light",
+    currentTheme: "dark",
     applyTheme: (name, colors) => {
         const html = document.documentElement;
         Object.keys(colors).forEach((key) => {

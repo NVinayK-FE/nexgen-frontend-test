@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { emailSchema, passwordSchema } from "@/lib/schema";
+import { getEmailSchema, getPasswordSchema } from "@/lib/schema";
 
 export interface IEmailSchemaProps {
     requiredMsg: string;
@@ -17,6 +17,6 @@ export interface ILoginFormSchemaProps {
 }
 
 export const getLoginFormSchema = ({ email, password }: ILoginFormSchemaProps) => z.object({
-    email: emailSchema(email.requiredMsg, email.invalidMsg),
-    password: passwordSchema(password.requiredMsg),
+    email: getEmailSchema(email.requiredMsg, email.invalidMsg),
+    password: getPasswordSchema(password.requiredMsg),
 });

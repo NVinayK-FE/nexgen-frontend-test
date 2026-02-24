@@ -1,8 +1,15 @@
 {
+    "header": {
+        "logo": "NexGen Guest logo"
+    },
     "login-form": {
         "title": "Sign in to your account",
         "email": "Email",
         "password": "Password",
-        "button": "SUBMIT"
+        "button": "SUBMIT",
+        "email-required": "Email is required",
+        "email-invalid": "Email is invalid",
+        "password-required": "Password is required",
+        "forgot-password": "Forgot your password?"
     }
 }

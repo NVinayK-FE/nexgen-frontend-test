@@ -2,17 +2,25 @@ import Image from "next/image";
 import { Copyright } from "lucide-react";
 import Card from "@core/card/card";
 
-interface HeaderFooterCardProps {
+interface IBrandCardProps {
+    imageTitle?: string;
     children?: React.ReactNode;
 }
 
-const HeaderFooterCard: React.FC<HeaderFooterCardProps> = ({ children }) => {
+/**
+ * BrandCard component is used to display a brand logo along with copyright information. 
+ * It can also accept children components to display additional content between the logo and the copyright information.
+ */
+const BrandCard: React.FC<IBrandCardProps> = ({
+    imageTitle = "",
+    children
+}: IBrandCardProps) => {
     return (
         <Card>
             <div className="flex flex-col items-center gap-2">
                 <Image
                     src="/logow.webp"
-                    alt="NexGen Guest logo"
+                    alt={imageTitle}
                     width={100}
                     height={20}
                     priority
@@ -38,4 +46,4 @@ const HeaderFooterCard: React.FC<HeaderFooterCardProps> = ({ children }) => {
     );
 };
 
-export default HeaderFooterCard;
+export default BrandCard;
