@@ -1,0 +1,17 @@
+@reference "tailwindcss";
+
+.nav {
+  @apply flex flex-col gap-2 w-24 min-h-screen items-center py-6 bg-[#0F172A] border-r border-slate-800/10 z-20;
+}
+
+.navLink {
+  @apply p-4 transition-all rounded-lg;
+}
+
+.navLinkItem {
+  @apply w-6 h-6 transition-colors;
+}
+
+.navLinkActive {
+  @apply bg-blue-600/20 border-blue-600/40 text-blue-500 shadow-[0_2px_8px_rgba(59,130,246,0.15)];
+}

@@ -1,21 +1,54 @@
+"use client";
 
 import { Home, MessageSquare, Users, Settings } from "lucide-react";
+import CustomLink from "../core/ui/custom-link";
+import { ROUTES } from "@/utils/auth/routes/routes";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/cn";
+import styles from "./nav.module.css";
 
 const Nav = () => {
+    const pathname = usePathname()
+
     return (
-        <nav className="flex flex-col gap-2 flex-1 w-24 min-h-screen flex flex-col items-center py-6 gap-4 bg-[#0F172A] border-r border-slate-800/10 z-20">
-            <a href="#" className="flex items-center justify-center p-4 transition-all rounded-lg hover:bg-blue-600/10 group">
-                <Home className="w-6 h-6 text-slate-500 group-hover:text-blue-500 transition-colors" />
-            </a>
-            <a href="#" className="flex items-center justify-center p-4 transition-all rounded-lg hover:bg-blue-600/10 group">
-                <MessageSquare className="w-6 h-6 text-slate-500 group-hover:text-blue-500 transition-colors" />
-            </a>
-            <a href="#" className="flex items-center justify-center p-4 transition-all rounded-lg hover:bg-blue-600/10 group">
-                <Users className="w-6 h-6 text-slate-500 group-hover:text-blue-500 transition-colors" />
-            </a>
-            <a href="#" className="flex items-center justify-center p-4 transition-all rounded-lg bg-blue-600">
-                <Settings className="w-6 h-6 text-white" />
-            </a>
+        <nav className={styles.nav}>
+            <CustomLink href={ROUTES.DASHBOARD} className={cn(
+                styles.navLink, "group",
+                pathname === ROUTES.DASHBOARD && styles.navLinkActive,
+                pathname !== ROUTES.DASHBOARD && "hover:bg-blue-600/10")}>
+                <Home className={cn(
+                    styles.navLinkItem,
+                    pathname === ROUTES.DASHBOARD && styles.navLinkActive,
+                    pathname !== ROUTES.DASHBOARD && "text-slate-500 group-hover:text-blue-500")}
+                />
+            </CustomLink>
+            <CustomLink href={ROUTES.MESSAGES} className={cn(
+                styles.navLink, "group",
+                pathname === ROUTES.MESSAGES && styles.navLinkActive,
+                pathname !== ROUTES.MESSAGES && "hover:bg-blue-600/10")}>
+                <MessageSquare className={cn(
+                    styles.navLinkItem,
+                    pathname === ROUTES.MESSAGES && styles.navLinkActive,
+                    pathname !== ROUTES.MESSAGES && "text-slate-500 group-hover:text-blue-500")} />
+            </CustomLink>
+            <CustomLink href={ROUTES.USERS} className={cn(
+                styles.navLink, "group",
+                pathname === ROUTES.USERS && styles.navLinkActive,
+                pathname !== ROUTES.USERS && "hover:bg-blue-600/10")}>
+                <Users className={cn(
+                    styles.navLinkItem,
+                    pathname === ROUTES.USERS && styles.navLinkActive,
+                    pathname !== ROUTES.USERS && "text-slate-500 group-hover:text-blue-500")} />
+            </CustomLink>
+            <CustomLink href={ROUTES.CHANGE_PASSWORD} className={cn(
+                styles.navLink, "group",
+                pathname.includes('/account/settings') && styles.navLinkActive,
+                !pathname.includes('/account/settings') && "hover:bg-blue-600/10")}>
+                <Settings className={cn(
+                    styles.navLinkItem,
+                    pathname.includes('/account/settings') && styles.navLinkActive,
+                    !pathname.includes('/account/settings') && "text-slate-500 group-hover:text-blue-500")} />
+            </CustomLink>
         </nav>
     );
 }
