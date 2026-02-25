@@ -1,6 +1,4 @@
 import React, { type HTMLInputTypeAttribute } from 'react';
-import Input from '@/components/common/core/form/form-input';
-import { error } from 'console';
 
 interface FormInputProps {
     label?: string;

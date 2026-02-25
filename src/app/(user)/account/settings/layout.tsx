@@ -1,13 +1,12 @@
 "use client";
 
-import CustomLink from "@/components/common/core/ui/custom-link";
-import SubNavContainer from "@/components/containers/sub-nav/sub-nav-container";
-import SubNavItems from "@/components/containers/sub-nav/sub-nav-items";
-import { goToChangeEmail, goToChangePassword } from "@/utils/auth/routes/route-utils";
-import { ROUTES } from "@/utils/auth/routes/routes";
-import { getAccountSettingSubNavItems } from "@/utils/nav/sub-nav-util";
-import { ChevronLeft, Mail, Lock } from "lucide-react";
+import { ROUTES } from "@/constants/route";
+import { ChevronLeft } from "lucide-react";
+import CustomLink from "@core/ui/custom-link";
 import { useRouter, usePathname } from "next/navigation";
+import SubNavItems from "@containers/sub-nav/sub-nav-items";
+import { getAccountSettingSubNavItems } from "@/utils/sub-nav";
+import SubNavContainer from "@containers/sub-nav/sub-nav-container";
 
 const AccountSettingsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const router = useRouter();

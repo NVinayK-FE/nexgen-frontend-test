@@ -1,5 +1,5 @@
 import { cn } from "@/lib/cn";
-import { ISubNavItem } from "@/utils/nav/sub-nav-util";
+import { ISubNavItem } from "@/utils/sub-nav";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 interface ISubNavItemsProps {
@@ -12,7 +12,7 @@ const SubNavItems: React.FC<ISubNavItemsProps> = ({ subNavItems, pathname, route
     return (
         <div className="flex flex-col">
             {subNavItems.map((item) => (
-                <div onClick={() => item.goToPage(router)}
+                <div key={item.label} onClick={() => item.goToPage(router)}
                     className={cn('flex items-center justify-start w-full gap-2 text-sm p-3 mb-1 rounded-xl cursor-pointer transition-all border relative group',
                         item.active ? 'text-blue-500 bg-blue-600/12 border-blue-600/40 shadow-[0_2px_8px_rgba(59,130,246,0.15)]'
                             : 'bg-transparent border-transparent hover:text-slate-50 hover:bg-blue-600/8 hover:border-blue-600/20')}>

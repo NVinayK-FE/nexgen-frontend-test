@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { getEmailSchema, getPasswordSchema } from "@/lib/schema";
+import { getEmailSchema, getPasswordSchema } from "@/utils/schema";
 
 export interface IEmailSchemaProps {
     requiredMsg: string;

@@ -1,4 +1,4 @@
-import { ROUTES } from "@/utils/auth/routes/routes";
+import { ROUTES } from "@/constants/route";
 import { redirect } from "next/navigation"
 
 const AccountPage = () => {

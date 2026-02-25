@@ -1,5 +1,5 @@
 import React from 'react';
-import PasswordInput from '@/components/common/core/form/form-password';
+import PasswordInput from '@core/form/form-password';
 
 interface FormPasswordProps {
     label?: string;

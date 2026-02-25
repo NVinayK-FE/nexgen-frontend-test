@@ -1,5 +1,5 @@
+import { ROUTES } from "@/constants/route";
 import { LucideIcon, Mail, Lock, Users, Shield } from "lucide-react";
-import { ROUTES } from "../auth/routes/routes";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export interface ISubNavItem {

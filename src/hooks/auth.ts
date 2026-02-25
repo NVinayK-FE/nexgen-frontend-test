@@ -1,4 +1,4 @@
-import { getAuthenticated } from "@/services/auth/auth-client.service";
+import { getAuthenticated } from "@/services/auth.service";
 import { useQuery } from "@tanstack/react-query";
 
 export const useAuthStatus = () => {

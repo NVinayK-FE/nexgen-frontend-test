@@ -1,9 +1,11 @@
+import { Role, ROLES } from "@/constants/auth";
 import { API_ENDPOINTS } from "@/utils/api";
 import axios from "axios";
 
 interface IAuthenticatedResponse {
     isAuthenticated: boolean;
     userId?: string;
+    role?: Role;
 }
 
 export const getAuthenticated = async (): Promise<IAuthenticatedResponse> => {
@@ -16,8 +18,8 @@ export const getAuthenticated = async (): Promise<IAuthenticatedResponse> => {
             return data;
         }
 
-        return { isAuthenticated: true };
+        return { isAuthenticated: true, role: ROLES.ADMIN };
     } catch (error) {
-        return { isAuthenticated: true };
+        return { isAuthenticated: true, role: ROLES.ADMIN };
     }
 }

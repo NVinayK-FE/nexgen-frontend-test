@@ -1,13 +1,9 @@
-/**
- * 
- */
-
 import type React from "react";
 
-import Card from "@/components/common/core/card/card";
-import CardIcon from "@/components/common/core/card/card-icon";
-import CardTitle from "@/components/common/core/card/card-title";
-import CardDescription from "@/components/common/core/card/card-description";
+import Card from "@core/card/card";
+import CardIcon from "@core/card/card-icon";
+import CardTitle from "@core/card/card-title";
+import CardDescription from "@core/card/card-description";
 
 interface IBasicCardProps {
   icon: React.ReactNode;

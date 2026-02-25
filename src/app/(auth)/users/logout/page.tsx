@@ -1,12 +1,12 @@
 "use client";
 
-import BasicPage from '@core/page/basic-page';
-import BrandCard from '@common/card/brand-card';
-import { useTranslations } from '@/hooks/useTranslations';
-import Logout from '@/components/others/auth/logout/logout';
+import Logout from '@common/auth/logout/logout';
+import BrandCard from '@shared/card/brand-card';
+import BasicPage from '@shared/core/page/basic-page';
+import { useTranslation } from '@/hooks/translation';
 
 const LogoutPage: React.FC = () => {
-    const { t } = useTranslations("header");
+    const { t } = useTranslation("header");
 
     const goToLoginPage = () => {
         console.log("Navigating to login page");

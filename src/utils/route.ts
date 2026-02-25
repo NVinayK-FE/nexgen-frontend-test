@@ -1,5 +1,5 @@
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { ROUTES } from "./routes";
+import { ROUTES } from "@/constants/route";
 
 export const goToPage = (router: AppRouterInstance, url: string) => {
     router.push(url);

@@ -3,8 +3,8 @@
 import { useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 
-import { ROUTES } from '@/utils/auth/routes/routes';
-import { useAuthStatus } from '@/hooks/auth/useAuth';
+import { ROUTES } from '@/constants/route';
+import { useAuthStatus } from '@/hooks/auth';
 
 interface IProtectedRouteProps {
     children: React.ReactNode;

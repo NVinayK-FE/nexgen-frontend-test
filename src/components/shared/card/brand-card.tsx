@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Copyright } from "lucide-react";
 import Card from "@core/card/card";
+import { Copyright } from "lucide-react";
 
 interface IBrandCardProps {
     imageTitle?: string;

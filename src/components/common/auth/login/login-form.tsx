@@ -4,11 +4,11 @@ import { Eye, EyeOff } from "lucide-react";
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Button } from "@core/ui/button";
-import Input from "@/components/common/core/ui/input";
-import { LoginFormData } from "@/utils/auth/login-util";
-import { useTranslations } from "@/hooks/useTranslations";
-import { getLoginFormSchema } from "@/components/others/auth/login/login-form.schema";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@core/form/form";
+import Input from "@core/ui/input";
+import { LoginFormData } from "@/utils/auth/login";
+import { useTranslation } from "@/hooks/translation";
+import { getLoginFormSchema } from "@common/auth/login/login-form.schema";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@shared/core/form/form";
 
 interface LoginFormProps {
     onSubmit: (email: string, password: string) => void;
@@ -17,7 +17,7 @@ interface LoginFormProps {
 const LoginForm: React.FC<LoginFormProps> = ({
     onSubmit
 }: LoginFormProps) => {
-    const { t, isLoading } = useTranslations("login-form");
+    const { t, isLoading } = useTranslation("login-form");
 
     const [showPassword, setShowPassword] = useState(false);
 

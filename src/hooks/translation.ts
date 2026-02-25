@@ -1,9 +1,9 @@
 "use client"
 
-import { useLocaleQuery } from "@/services/useLocaleQuery";
-import { useLocaleStore } from "@/stores/useLocaleStore";
+import { useLocaleQuery } from "@/services/locale-service";
+import { useLocaleStore } from "@/stores/locale-store";
 
-export const useTranslations = (namespace: string) => {
+export const useTranslation = (namespace: string) => {
     const currentLocale = useLocaleStore();
     const { data, isLoading } = useLocaleQuery(currentLocale.locale);
 

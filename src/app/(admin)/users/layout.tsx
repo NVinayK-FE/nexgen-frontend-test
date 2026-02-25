@@ -1,12 +1,12 @@
 "use client";
 
 import { ChevronLeft } from "lucide-react";
-import { ROUTES } from "@/utils/auth/routes/routes";
+import { ROUTES } from "@/constants/route";
+import CustomLink from "@shared/core/ui/custom-link";
 import { useRouter, usePathname } from "next/navigation";
-import CustomLink from "@/components/common/core/ui/custom-link";
-import SubNavItems from "@/components/containers/sub-nav/sub-nav-items";
-import { getUserManagementSubNavItems } from "@/utils/nav/sub-nav-util";
-import SubNavContainer from "@/components/containers/sub-nav/sub-nav-container";
+import SubNavItems from "@containers/sub-nav/sub-nav-items";
+import { getUserManagementSubNavItems } from "@/utils/sub-nav";
+import SubNavContainer from "@containers/sub-nav/sub-nav-container";
 
 const UsersLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const router = useRouter();

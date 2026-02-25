@@ -1,9 +1,8 @@
 "use client";
 
-import { Button } from "@/components/common/core/ui/button";
-import { Lock, Info } from "lucide-react";
 import { useState } from "react";
-
+import { Lock, Info } from "lucide-react";
+import { Button } from "@shared/core/ui/button";
 
 const ChangePasswordPage = () => {
     const [currentPassword, setCurrentPassword] = useState("");

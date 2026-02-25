@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useThemeQuery } from "@/services/useThemeQuery";
-import { useThemeStore } from "@/stores/useThemeStore";
+import { useThemeQuery } from "@/services/theme-service";
+import { useThemeStore } from "@/stores/theme-store";
 
 interface ThemeSwitcherProps {
     themeFile: string;

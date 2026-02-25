@@ -1,15 +1,15 @@
 "use client";
 
-import BasicPage from '@core/page/basic-page';
-import BrandCard from '@common/card/brand-card';
-import { useTranslations } from '@/hooks/useTranslations';
-import LoginForm from '@/components/others/auth/login/login-form';
+import BrandCard from '@shared/card/brand-card';
+import BasicPage from '@shared/core/page/basic-page';
+import { useTranslation } from '@/hooks/translation';
+import LoginForm from '@common/auth/login/login-form';
 
 /**
  * LoginPage component for user authentication.
  */
 const LoginPage: React.FC = () => {
-    const { t } = useTranslations("header");
+    const { t } = useTranslation("header");
 
     const onSubmit = (email: string, password: string) => {
         console.log(email, password);
