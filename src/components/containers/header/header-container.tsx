@@ -1,15 +1,17 @@
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import { cn } from "@/lib/cn";
+import styles from "@containers/header/header-container.module.css";
 
-const Header: React.FC = () => {
+const HeaderContainer: React.FC = () => {
     return (
-        <header className="w-full h-20 flex items-center justify-between px-6 z-30 bg-[#0F172A] border-b border-slate-800/10">
+        <header className={cn("theme-header", styles.header)}>
             <div className="flex items-center gap-3">
                 <Image
                     src="/logow.webp"
                     alt="NexGen Guest"
                     width={100}
-                    height={20}
+                    height={19}
                     priority
                 />
             </div>
@@ -25,4 +27,4 @@ const Header: React.FC = () => {
     );
 }
 
-export default Header;
+export default HeaderContainer;

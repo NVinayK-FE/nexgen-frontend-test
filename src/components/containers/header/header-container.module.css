@@ -1,0 +1,5 @@
+@reference "tailwindcss";
+
+.header {
+  @apply w-full h-18 flex items-center justify-between px-7;
+}

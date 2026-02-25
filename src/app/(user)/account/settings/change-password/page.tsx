@@ -17,7 +17,7 @@ const ChangePasswordPage = () => {
 
     return (
         <div className="animate-[fadeIn_0.3s_ease-out]">
-            <div className="bg-[#1E293B] border border-[#1E293B] rounded-xl p-10">
+            <div className="theme-card-2">
                 <div className="flex items-start gap-4 mb-8">
                     <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
                         <Lock className="w-6 h-6 text-blue-500" />

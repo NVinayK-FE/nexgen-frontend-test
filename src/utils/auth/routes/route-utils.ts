@@ -1,6 +1,10 @@
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { ROUTES } from "./routes";
 
+export const goToPage = (router: AppRouterInstance, url: string) => {
+    router.push(url);
+}
+
 export const goToDashboard = (router: AppRouterInstance) => {
     router.push(ROUTES.DASHBOARD);
 }

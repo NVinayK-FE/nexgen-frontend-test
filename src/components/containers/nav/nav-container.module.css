@@ -1,0 +1,13 @@
+@reference "tailwindcss";
+
+.nav {
+  @apply flex flex-col w-18 min-h-screen items-center py-4 gap-[2px] px-2;
+}
+
+.navLink {
+  @apply w-full py-3 transition-all rounded-lg flex items-center justify-center;
+}
+
+.navLinkItem {
+  @apply w-[18px] h-[18px] transition-colors;
+}

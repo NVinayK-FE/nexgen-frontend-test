@@ -4,12 +4,27 @@
   --page-bg: #020617;
   --page-fg: #ededed;
   --card-bg: #1E293B;
-  --card-border: #334155;
+  --card-br: #334155;
   --card-fg: #90A1B9;
   --card-footer-fg: #62748E;
+  --card-bg-2: #0D1A2D;
+  --header-bg: #0F172A;
+  --header-br: #94a3b81a;
+  --nav-bg: #0A1628;
+  --nav-fg: #475569;
+  --nav-br: #94a3b81a;
+  --nav-item-hover-bg: #3b82f614;
+  --nav-item-hover-fg: #3B82F6;
+  --nav-item-active-bg: #3B82F6;
+  --nav-item-active-fg: #ffffff;
+  --sub-nav-item-hover-fg: #F1F5F9;
+
+  --content-bg: #060D1A;
 }
 
 @theme inline {
+  --text-2xs: 10px;
+  --text-13: 13px;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -19,7 +34,7 @@
     --page-bg: var(--page-bg);
     --page-fg: var(--page-fg);
     --card-bg: var(--card-bg);
-    --card-border: var(--card-border);
+    --card-br: var(--card-br);
     --card-fg: var(--card-fg);
   }
 } */
@@ -29,11 +44,39 @@
 }
 
 @utility theme-card {
-  @apply bg-(--card-bg) text-(--card-fg) border border-(--card-border) p-8 sm:p-4 md:p-6 rounded-2xl;
+  @apply bg-(--card-bg) text-(--card-fg) border border-(--card-br) p-8 sm:p-4 md:p-6 rounded-2xl;
 }
 
 @utility theme-card-footer-fg {
   color: var(--card-footer-fg);
+}
+
+@utility theme-card-2 {
+  @apply bg-(--nav-bg) text-(--nav-fg) border border-(--nav-br) p-8 sm:p-4 md:p-6 rounded-2xl;
+}
+
+@utility theme-header {
+  @apply bg-(--header-bg) border-b border-(--header-br);
+}
+
+@utility theme-nav {
+  @apply bg-(--nav-bg) text-(--nav-fg) border-r border-(--nav-br);
+}
+
+@utility theme-nav-item-hover {
+  @apply bg-(--nav-item-hover-bg) text-(--nav-item-hover-fg);
+}
+
+@utility theme-nav-item-active {
+  @apply bg-(--nav-item-active-bg) text-(--nav-item-active-fg);
+}
+
+@utility theme-sub-nav-item-hover {
+  @apply text-(--sub-nav-item-hover-fg);
+}
+
+@utility theme-content {
+  @apply bg-(--content-bg);
 }
 
 body {
