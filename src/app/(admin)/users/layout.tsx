@@ -1,36 +1,37 @@
 "use client";
 
-import { ChevronLeft } from "lucide-react";
-import { ROUTES } from "@/constants/route";
-import CustomLink from "@shared/core/ui/custom-link";
+import FlexRow from "@core/flex/flex-row";
+import { useEffect, useState } from "react";
+import FlexGrow from "@core/flex/flex-grow";
+import SubNavTitle from "@shared/sub-nav/sub-nav-title";
 import { useRouter, usePathname } from "next/navigation";
 import SubNavItems from "@containers/sub-nav/sub-nav-items";
-import { getUserManagementSubNavItems } from "@/utils/sub-nav";
+import BackToDashboard from "@shared/sub-nav/back-to-dashboard";
 import SubNavContainer from "@containers/sub-nav/sub-nav-container";
+import { getUserManagementSubNavItems, ISubNavItem } from "@/utils/sub-nav";
 
 const UsersLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const router = useRouter();
     const pathname = usePathname();
+    const [subNavItems, setSubNavItems] = useState<ISubNavItem[]>(
+        getUserManagementSubNavItems(pathname)
+    );
+
+    useEffect(() => {
+        setSubNavItems(getUserManagementSubNavItems(pathname));
+    }, [pathname]);
 
     return (
-        <div className="flex flex-row">
+        <FlexRow className="h-full">
             <SubNavContainer>
-                <div className="flex flex-col">
-                    <CustomLink href={ROUTES.DASHBOARD}
-                        className="flex flex-row text-13 gap-2 pb-7 hover:theme-sub-nav-item-hover">
-                        <ChevronLeft className="w-5 h-5" />
-                        <span>Back to Dashboard</span>
-                    </CustomLink>
-
-                    <h1 className="text-slate-100 text-base text-2xs font-bold mb-4 tracking-wide text-left">USER MANAGEMENT</h1>
-
-                    <SubNavItems subNavItems={getUserManagementSubNavItems(pathname)} pathname={pathname} router={router} />
-                </div>
+                <BackToDashboard />
+                <SubNavTitle title="USER MANAGEMENT" />
+                <SubNavItems subNavItems={subNavItems} router={router} />
             </SubNavContainer>
-            <div className="flex-1 p-10">
+            <FlexGrow className="t-max-h-screen-header p-9 overflow-y-auto">
                 {children}
-            </div>
-        </div>
+            </FlexGrow>
+        </FlexRow>
     );
 }
 

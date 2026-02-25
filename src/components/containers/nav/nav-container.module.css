@@ -1,7 +1,7 @@
 @reference "tailwindcss";
 
 .nav {
-  @apply flex flex-col w-18 min-h-screen items-center py-4 gap-[2px] px-2;
+  @apply flex flex-col w-18 items-center py-4 gap-[2px] px-2;
 }
 
 .navLink {

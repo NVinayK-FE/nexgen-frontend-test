@@ -16,14 +16,14 @@ const ChangePasswordPage = () => {
 
     return (
         <div className="animate-[fadeIn_0.3s_ease-out]">
-            <div className="theme-card-2">
+            <div className="t-card">
                 <div className="flex items-start gap-4 mb-8">
-                    <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                        <Lock className="w-6 h-6 text-blue-500" />
+                    <div className="w-12 h-12 rounded-lg bg-(--container-sub-nav-bg-active) flex items-center justify-center flex-shrink-0">
+                        <Lock className="w-6 h-6 text-(--container-sub-nav-fg-active)" />
                     </div>
                     <div>
-                        <h3 className="text-slate-100 text-xl font-bold mb-1 text-left">Update Password</h3>
-                        <p className="text-slate-400 text-sm text-left">Strengthen your account security by updating your password.</p>
+                        <p className="text-(--container-sub-nav-fg-hover) text-md font-semibold mb-1 text-left">Update Password</p>
+                        <p className="text-(--container-fg) text-sm text-left">Strengthen your account security by updating your password.</p>
                     </div>
                 </div>
 
@@ -59,7 +59,7 @@ const ChangePasswordPage = () => {
                         </div>
                     </div> */}
 
-                    <div className="flex items-start gap-2 text-slate-400 text-sm text-left">
+                    <div className="flex items-start gap-2 text-sm text-left">
                         <Info className="w-5 h-5 flex-shrink-0 mt-0.5" />
                         <p className="text-left">Password must be at least 8 characters and include uppercase, lowercase, number, and special character.</p>
                     </div>

@@ -1,12 +1,12 @@
-import type React from "react";
-
-interface CardTitleProps {
+import { cn } from "@/lib/cn";
+interface ICardTitleProps {
   title: string;
+  className?: string;
 }
 
-const CardTitle: React.FC<CardTitleProps> = ({ title }: CardTitleProps) => {
+const CardTitle: React.FC<ICardTitleProps> = ({ title, className }: ICardTitleProps) => {
   return (
-    <div className="text-[0.9375rem] font-bold text-[#F1F5F9] mb-1">
+    <div className={cn("text-(--container-sub-nav-fg-hover)", className)}>
       {title}
     </div>
   );

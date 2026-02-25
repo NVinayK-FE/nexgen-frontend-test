@@ -1,12 +1,16 @@
-interface CardProps {
+import { cn } from "@/lib/cn";
+
+interface ICardProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-const Card: React.FC<CardProps> = ({
+const Card: React.FC<ICardProps> = ({
   children,
-}: CardProps) => {
+  className,
+}: ICardProps) => {
   return (
-    <div className="theme-card">
+    <div className={cn("t-card", className)}>
       {children}
     </div>
   );

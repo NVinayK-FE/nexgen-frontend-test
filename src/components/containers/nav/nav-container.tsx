@@ -18,12 +18,12 @@ const NavContainer: React.FC = () => {
     }, [pathname, role]);
 
     return (
-        <nav className={cn(styles.nav, "theme-nav")}>
+        <nav className={cn(styles.nav, "t-container-nav")}>
             {navItems.map((item) => (
                 <CustomLink key={item.label} href={item.href} className={cn(
                     styles.navLink,
-                    item.active && "theme-nav-item-active",
-                    !item.active && "hover:theme-nav-item-hover")}>
+                    item.active && "t-container-nav-active",
+                    !item.active && "hover:t-container-nav-hover")}>
                     <item.icon className={styles.navLinkItem} />
                 </CustomLink>
             ))}

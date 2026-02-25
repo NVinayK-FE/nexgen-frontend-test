@@ -1,36 +1,37 @@
 "use client";
 
-import { ROUTES } from "@/constants/route";
-import { ChevronLeft } from "lucide-react";
-import CustomLink from "@core/ui/custom-link";
+import FlexRow from "@core/flex/flex-row";
+import { useEffect, useState } from "react";
+import FlexGrow from "@core/flex/flex-grow";
+import SubNavTitle from "@shared/sub-nav/sub-nav-title";
 import { useRouter, usePathname } from "next/navigation";
 import SubNavItems from "@containers/sub-nav/sub-nav-items";
-import { getAccountSettingSubNavItems } from "@/utils/sub-nav";
+import BackToDashboard from "@shared/sub-nav/back-to-dashboard";
 import SubNavContainer from "@containers/sub-nav/sub-nav-container";
+import { getAccountSettingSubNavItems, ISubNavItem } from "@/utils/sub-nav";
 
 const AccountSettingsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const router = useRouter();
     const pathname = usePathname();
+    const [subNavItems, setSubNavItems] = useState<ISubNavItem[]>(
+        getAccountSettingSubNavItems(pathname)
+    );
+
+    useEffect(() => {
+        setSubNavItems(getAccountSettingSubNavItems(pathname));
+    }, [pathname]);
 
     return (
-        <div className="flex flex-row">
+        <FlexRow>
             <SubNavContainer>
-                <div className="flex flex-col">
-                    <CustomLink href={ROUTES.DASHBOARD}
-                        className="flex flex-row text-13 gap-2 pb-7 hover:theme-sub-nav-item-hover">
-                        <ChevronLeft className="w-5 h-5" />
-                        <span>Back to Dashboard</span>
-                    </CustomLink>
-
-                    <h1 className="text-slate-100 text-base text-2xs font-bold mb-4 tracking-wide text-left">ACCOUNT SETTINGS</h1>
-
-                    <SubNavItems subNavItems={getAccountSettingSubNavItems(pathname)} pathname={pathname} router={router} />
-                </div>
+                <BackToDashboard />
+                <SubNavTitle title="ACCOUNT SETTINGS" />
+                <SubNavItems subNavItems={subNavItems} router={router} />
             </SubNavContainer>
-            <div className="flex-1 p-10">
+            <FlexGrow className="p-9">
                 {children}
-            </div>
-        </div>
+            </FlexGrow>
+        </FlexRow>
     );
 }
 

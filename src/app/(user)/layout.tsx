@@ -3,23 +3,21 @@
 import NavContainer from '@containers/nav/nav-container';
 import ProtectedRoute from '@common/auth/protected-route';
 import HeaderContainer from '@containers/header/header-container';
+import FlexCol from '@/components/shared/core/flex/flex-col';
+import FlexRow from '@/components/shared/core/flex/flex-row';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return (
         <ProtectedRoute>
-            <div className="min-h-screen flex flex-col">
+            <FlexCol className='min-h-screen'>
                 <HeaderContainer />
-
-                <div className="flex flex-row flex-1">
-                    <div>
-                        <NavContainer />
-                    </div>
-
-                    <main className="flex-1 theme-content">
+                <FlexRow className="flex-1">
+                    <NavContainer />
+                    <main className="flex-1">
                         {children}
                     </main>
-                </div>
-            </div>
+                </FlexRow>
+            </FlexCol>
         </ProtectedRoute>
     )
 }

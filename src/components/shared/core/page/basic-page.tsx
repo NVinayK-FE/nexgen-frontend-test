@@ -4,7 +4,7 @@ interface IBasicPageProps {
 
 const BasicPage: React.FC<IBasicPageProps> = ({ children }: IBasicPageProps) => {
     return (
-        <div className="theme-page min-h-screen w-full flex items-center justify-center">
+        <div className="min-h-screen w-full flex items-center justify-center">
             {children}
         </div>
     );

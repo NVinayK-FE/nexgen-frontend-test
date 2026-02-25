@@ -3,6 +3,34 @@
 :root {
   --page-bg: #020617;
   --page-fg: #ededed;
+
+  --container-bg:#0A1628;
+  --container-fg: #475569;
+  --container-br: #3b82f614;
+
+  --container-nav-bg-hover: #3B82f614;
+  --container-nav-fg-hover: #3b82f659;
+
+  --container-nav-bg-active: #3b82f659; /* #3B82f6 */
+  --container-nav-fg-active: #94A3B8;
+
+  --container-sub-nav-bg-hover: #3B82f614;
+  --container-sub-nav-fg-hover: #94A3B8;
+  --container-sub-nav-br-hover: #3B82F633;
+
+  --container-sub-nav-bg-active: #3b82f61f;
+  --container-sub-nav-fg-active: #3b82f659; /* #60A5FA */
+  --container-sub-nav-br-active: #3b82f659;
+
+
+
+
+
+
+
+/* 
+  --page-bg: #020617;
+  --page-fg: #ededed;
   --card-bg: #1E293B;
   --card-br: #334155;
   --card-fg: #90A1B9;
@@ -18,8 +46,9 @@
   --nav-item-active-bg: #3B82F6;
   --nav-item-active-fg: #ffffff;
   --sub-nav-item-hover-fg: #F1F5F9;
+  --card-fg2: #94A3B8;
 
-  --content-bg: #060D1A;
+  --content-bg: #060D1A; */
 }
 
 @theme inline {
@@ -38,6 +67,65 @@
     --card-fg: var(--card-fg);
   }
 } */
+
+@utility t-page {
+  @apply bg-(--page-bg) text-(--page-fg);
+}
+
+/* Header */
+
+@utility t-header {
+  @apply bg-(--container-bg) border-b border-(--container-br);
+}
+
+/* Nav container */
+@utility t-container-nav {
+  @apply bg-(--container-bg) text-(--container-fg) border-r border-(--container-br);
+}
+
+@utility t-container-nav-hover {
+  @apply bg-(--container-nav-bg-hover) text-(--container-nav-fg-hover);
+}
+
+@utility t-container-nav-active {
+  @apply bg-(--container-nav-bg-active) text-(--container-nav-fg-active);
+}
+
+/* Sub Nav Container */
+@utility t-container-sub-nav {
+  @apply bg-(--container-bg) text-(--container-fg) border-r border-(--container-br);
+}
+
+@utility t-container-sub-nav-hover {
+  @apply bg-(--container-sub-nav-bg-hover) text-(--container-sub-nav-fg-hover) border-(--container-sub-nav-br-hover);
+}
+
+@utility t-container-sub-nav-active {
+  @apply bg-(--container-sub-nav-bg-active) text-(--container-sub-nav-fg-active) border-(--container-sub-nav-br-active);
+}
+
+/* Card */
+@utility t-card {
+  @apply bg-(--container-bg) text-(--container-fg) border border-(--container-br) p-7 sm:p-3 md:p-5 rounded-2xl;
+}
+
+@utility t-max-h-screen-header {
+  max-height: calc(100vh - 72px);
+}
+
+
+
+@utility theme-nav {
+  @apply bg-(--nav-bg) text-(--nav-fg) border-r border-(--nav-br);
+}
+
+@utility theme-nav-item-hover {
+  @apply bg-(--nav-item-hover-bg) text-(--nav-item-hover-fg);
+}
+
+@utility theme-nav-item-active {
+  @apply bg-(--nav-item-active-bg) text-(--nav-item-active-fg);
+}
 
 @utility theme-page {
   @apply bg-(--page-bg) text-(--page-fg);
@@ -59,24 +147,20 @@
   @apply bg-(--header-bg) border-b border-(--header-br);
 }
 
-@utility theme-nav {
-  @apply bg-(--nav-bg) text-(--nav-fg) border-r border-(--nav-br);
-}
-
-@utility theme-nav-item-hover {
-  @apply bg-(--nav-item-hover-bg) text-(--nav-item-hover-fg);
-}
-
-@utility theme-nav-item-active {
-  @apply bg-(--nav-item-active-bg) text-(--nav-item-active-fg);
-}
 
 @utility theme-sub-nav-item-hover {
-  @apply text-(--sub-nav-item-hover-fg);
+  @apply text-(--card-fg2);
 }
 
 @utility theme-content {
   @apply bg-(--content-bg);
+}
+
+
+/* Scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--container-sub-nav-bg-hover) var(--container-bg);
 }
 
 body {
