@@ -25,22 +25,29 @@ function Input({
     return (
         <input
             type={type}
-            value={value}
-            className={cn(
-                `w-full p-2.5 rounded-xl text-sm leading-normal
-               bg-(--container-bg) border border-(--container-br) 
-               text-(--container-fg) placeholder:text-(--container-input-ph) 
-               focus:outline-none focus:border-(--container-br) 
-               focus:bg-(--container-bg)/80 focus:ring-4 focus:ring-(--container-br)/10 
-               transition-all duration-300`,
-                className,
-            )}
-            inputMode={inputMode}
-            onChange={onChange}
             placeholder={placeholder}
-            pattern={pattern}
-            {...props}
+            value={value}
+            onChange={onChange}
+            className="w-full px-3 py-2 rounded-lg text-sm bg-(--container-bg) border border-(--container-br) text-(--container-fg) placeholder-(--container-fg) focus:border-(--container-sub-nav-br-hover) outline-none transition-all"
         />
+        // <input
+        //     type={type}
+        //     value={value}
+        //     className={cn(
+        //         `w-full p-2.5 rounded-xl text-sm leading-normal
+        //        bg-(--container-bg) border border-(--container-br) 
+        //        text-(--container-fg) placeholder:text-(--container-input-ph) 
+        //        focus:outline-none focus:border-(--container-br) 
+        //        focus:bg-(--container-bg)/80 focus:ring-4 focus:ring-(--container-br)/10 
+        //        transition-all duration-300`,
+        //         className,
+        //     )}
+        //     inputMode={inputMode}
+        //     onChange={onChange}
+        //     placeholder={placeholder}
+        //     pattern={pattern}
+        //     {...props}
+        // />
     );
 }
 
