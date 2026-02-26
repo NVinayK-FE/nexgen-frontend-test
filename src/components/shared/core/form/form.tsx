@@ -133,7 +133,7 @@ function FormMessage({ className, ...props }: React.ComponentProps<'p'>) {
                         key={formMessageId || 'form-error-message'}
                         data-slot="form-message"
                         id={formMessageId}
-                        className={cn('text-red-400 text-xs', className)}
+                        className={cn('text-red-800 text-xs', className)}
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}

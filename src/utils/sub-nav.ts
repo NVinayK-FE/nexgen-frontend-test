@@ -1,5 +1,5 @@
 import { ROUTES } from "@/constants/route";
-import { LucideIcon, Mail, Lock, Users, Shield } from "lucide-react";
+import { LucideIcon, Mail, Lock, Users, Shield, UserPlus } from "lucide-react";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export interface ISubNavItem {
@@ -38,5 +38,14 @@ export const getUserManagementSubNavItems = (pathname: string): ISubNavItem[] =>
         active: pathname === ROUTES.USERS_ROLES,
         icon: Shield,
         goToPage: (router: AppRouterInstance) => router.push(ROUTES.USERS_ROLES),
+    }
+]
+
+export const getInviteUserSubNavItems = (pathname: string): ISubNavItem[] => [
+    {
+        label: "Invite User",
+        active: pathname === ROUTES.INVITE_USER,
+        icon: UserPlus,
+        goToPage: (router: AppRouterInstance) => router.push(ROUTES.INVITE_USER),
     }
 ]

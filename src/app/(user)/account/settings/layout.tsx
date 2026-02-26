@@ -22,13 +22,13 @@ const AccountSettingsLayout: React.FC<{ children: React.ReactNode }> = ({ childr
     }, [pathname]);
 
     return (
-        <FlexRow>
+        <FlexRow className="h-full">
             <SubNavContainer>
                 <BackToDashboard />
                 <SubNavTitle title="ACCOUNT SETTINGS" />
                 <SubNavItems subNavItems={subNavItems} router={router} />
             </SubNavContainer>
-            <FlexGrow className="p-9">
+            <FlexGrow className="t-max-h-screen-header p-9 overflow-y-auto">
                 {children}
             </FlexGrow>
         </FlexRow>

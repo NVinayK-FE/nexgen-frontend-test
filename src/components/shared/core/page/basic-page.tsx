@@ -1,10 +1,13 @@
+import { cn } from "@/lib/cn";
+
 interface IBasicPageProps {
     children?: React.ReactNode;
+    className?: string;
 }
 
-const BasicPage: React.FC<IBasicPageProps> = ({ children }: IBasicPageProps) => {
+const BasicPage: React.FC<IBasicPageProps> = ({ children, className }: IBasicPageProps) => {
     return (
-        <div className="min-h-screen w-full flex items-center justify-center">
+        <div className={cn("min-h-screen w-full flex items-center justify-center", className)}>
             {children}
         </div>
     );

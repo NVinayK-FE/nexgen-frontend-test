@@ -9,6 +9,7 @@ import { LoginFormData } from "@/utils/auth/login";
 import { useTranslation } from "@/hooks/translation";
 import { getLoginFormSchema } from "@common/auth/login/login-form.schema";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@shared/core/form/form";
+import FlexCol from "@/components/shared/core/flex/flex-col";
 
 interface LoginFormProps {
     onSubmit: (email: string, password: string) => void;
@@ -74,30 +75,30 @@ const LoginForm: React.FC<LoginFormProps> = ({
     };
 
     return (
-        <Form {...form} data-testid="login-form-testid">
-            <form
-                onSubmit={form.handleSubmit(onSubmitHandler)}
-                className="space-y-6"
-                onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                    }
-                }}
-            >
-                <div className="space-y-3">
+        <FlexCol>
+            <div className="text-(--container-sub-nav-fg-hover) w-full text-center py-2 pb-4">{t['title']}</div>
+
+            <Form {...form}>
+                <form
+                    onSubmit={form.handleSubmit(onSubmitHandler)}
+                    className="w-120 space-y-1"
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                        }
+                    }}
+                >
                     {/* Email */}
                     <FormField
                         name="email"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel
-                                    className="text-foreground text-sm leading-5 font-medium"
-                                    htmlFor="email"
-                                >
-                                    {t["title"]}
+                                <FormLabel htmlFor="email" className="text-sm leading-5 font-medium">
+                                    {t["email"]}
                                 </FormLabel>
                                 <FormControl>
                                     <Input
+                                        id="email"
                                         type="email"
                                         placeholder="you@example.com"
                                         {...field}
@@ -112,15 +113,13 @@ const LoginForm: React.FC<LoginFormProps> = ({
                         name="password"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel
-                                    className="text-foreground text-sm leading-5 font-medium"
-                                    htmlFor="password"
-                                >
+                                <FormLabel htmlFor="password" className="text-sm">
                                     {t["password"]}
                                 </FormLabel>
                                 <div className="relative">
                                     <FormControl>
                                         <Input
+                                            id="password"
                                             type={showPassword ? 'text' : 'password'}
                                             placeholder="********"
                                             onInvalid={(e) => e.preventDefault()}
@@ -132,12 +131,14 @@ const LoginForm: React.FC<LoginFormProps> = ({
                                         type="button"
                                         aria-label={showPassword ? 'Hide password' : 'Show password'}
                                         onClick={() => setShowPassword(!showPassword)}
-                                        className="absolute inset-y-0 right-1 top-1.5 grid place-items-center p-0 h-6 w-6 min-w-0 cursor-pointer text-muted-foreground"
+                                        className="absolute inset-y-0 right-1 top-2 grid place-items-center p-0 h-6 w-6 min-w-0 cursor-pointer text-muted-foreground"
                                     >
                                         {showPassword ? <Eye className="size-4" /> : <EyeOff className="size-4" />}
                                     </Button>
                                 </div>
                                 <FormMessage />
+
+
 
                                 <Button
                                     variant="ghost"
@@ -150,11 +151,9 @@ const LoginForm: React.FC<LoginFormProps> = ({
                             </FormItem>
                         )}
                     />
-
-                </div>
-            </form>
-        </Form>
-
+                </form>
+            </Form>
+        </FlexCol>
     );
 };
 

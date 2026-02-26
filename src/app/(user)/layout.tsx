@@ -11,7 +11,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <ProtectedRoute>
             <FlexCol className='min-h-screen'>
                 <HeaderContainer />
-                <FlexRow className="flex-1">
+                <FlexRow className="flex-1 t-max-h-screen-header">
                     <NavContainer />
                     <main className="flex-1">
                         {children}
