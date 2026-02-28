@@ -1,5 +1,5 @@
-import { Role, ROLES } from "@/constants/auth";
-import { ROUTES } from "@/constants/route"
+import { Role, ROLES } from "@/data/roles";
+import { ROUTES } from "@/data/route"
 import { Home, MessageSquare, Users, Settings, LucideIcon } from "lucide-react";
 
 export interface INavItem {

@@ -4,12 +4,12 @@ import { cn } from "@/lib/cn";
 import { useEffect, useState } from "react";
 import CustomLink from "@core/ui/custom-link";
 import { usePathname } from "next/navigation";
-import { useAuthStore } from "@/stores/auth-store";
+import { useUserStore } from "@/stores/user-store";
 import { getNavItems, INavItem } from "@/utils/nav";
 import styles from "@containers/nav/nav-container.module.css";
 
 const NavContainer: React.FC = () => {
-    const { role } = useAuthStore();
+    const { role } = useUserStore().user;
     const pathname = usePathname();
     const [navItems, setNavItems] = useState<INavItem[]>(getNavItems(pathname, role));
 

@@ -1,4 +1,4 @@
-import { ROUTES } from "@/constants/route";
+import { ROUTES } from "@/data/route";
 import { LucideIcon, Mail, Lock, Users, Shield, UserPlus } from "lucide-react";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 

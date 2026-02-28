@@ -1,5 +1,5 @@
-import { Role, ROLES } from "@/constants/auth";
-import { API_ENDPOINTS } from "@/utils/api";
+import { Role, ROLES } from "@/data/roles";
+import { API_ENDPOINTS } from "@/utils/api-endpoint";
 import axios from "axios";
 
 interface IAuthenticatedResponse {

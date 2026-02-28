@@ -1,4 +1,4 @@
-import { ROUTES } from "@/constants/route";
+import { ROUTES } from "@/data/route";
 import { ChevronLeft } from "lucide-react";
 import CustomLink from "@core/ui/custom-link";
 

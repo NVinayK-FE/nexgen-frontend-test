@@ -11,4 +11,5 @@ export enum API_ENDPOINTS {
     GET_USERS = '/api/users',
     CREATE_USER = '/api/users',
     STATUS = '/api/auth/status',
+    PROPERTIES = '/api/properties',
 }
