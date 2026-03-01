@@ -53,19 +53,19 @@ export const getNavItems = (pathname: string, role: Role): INavItem[] => {
                 getUsersNavItem(pathname),
                 getSettingsNavItem(pathname),
             ];
-        case ROLES.ADMIN:
+        case ROLES.HOTEL_ADMIN:
             return [
                 getDashboardNavItem(pathname),
                 getConversationNavItem(pathname),
                 getSettingsNavItem(pathname),
             ];
-        case ROLES.USER:
+        case ROLES.HOTEL_STAFF:
             return [
                 getDashboardNavItem(pathname),
                 getConversationNavItem(pathname),
                 getSettingsNavItem(pathname),
             ];
-        case ROLES.GUEST:
+        case ROLES.HOTEL_GUEST:
             return [
                 getConversationNavItem(pathname),
             ];

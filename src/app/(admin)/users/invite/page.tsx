@@ -9,6 +9,8 @@ import { Building2, Search, Plus, Trash2, Info, CheckCircle, Check } from "lucid
 import { getDefaultInviteUserData, IInviteUserData, IPropertyScope, IPropertyScopeOption, PropertyScope, propertyScopeOptions } from "@/data/invite";
 import { useUserStore } from "@/stores/user-store";
 import { IProperty } from "@/data/property";
+import { Content } from "next/font/google";
+import ContentTitle from "@/components/shared/content/content-title";
 
 interface IInvitePageProps {
     onSubmit?: (data: IInviteUserData) => void;
@@ -194,6 +196,7 @@ export const InvitePage: React.FC<IInvitePageProps> = ({ onSubmit }) => {
 
     return (
         <div>
+            <ContentTitle title="Invite User" description="Add a new team member to your organization" />
             {/* Page Header */}
             <div className="mb-3">
                 <h1 className="text-2xl font-semibold text-(--container-sub-nav-fg-hover) mb-1">Invite User</h1>

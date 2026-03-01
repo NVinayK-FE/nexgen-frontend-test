@@ -1,11 +1,13 @@
 import type * as React from 'react';
 
 import { cn } from '@/lib/cn';
+import { LucideIcon } from 'lucide-react';
 
 interface InputProps extends React.ComponentProps<'input'> {
     type: React.HTMLInputTypeAttribute;
     inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"];
     value?: string;
+    icon?: LucideIcon
     placeholder?: string;
     pattern?: string;
     className?: string;
@@ -16,6 +18,7 @@ function Input({
     type = "text",
     inputMode = "text",
     value,
+    icon: Icon,
     placeholder = '',
     pattern,
     className = '',
@@ -23,13 +26,16 @@ function Input({
     ...props
 }: InputProps) {
     return (
-        <input
-            type={type}
-            placeholder={placeholder}
-            value={value}
-            onChange={onChange}
-            className="w-full px-3 py-2 rounded-lg text-sm bg-(--container-bg) border border-(--container-br) text-(--container-fg) placeholder-(--container-fg) focus:border-(--container-sub-nav-br-hover) outline-none transition-all"
-        />
+        <div className="relative">
+            {Icon && <Icon className="w-4 h-4 text-(--container-fg) text-sm absolute left-10 top-1/2 -translate-y-1/2" />}
+            <input
+                type={type}
+                placeholder={placeholder}
+                value={value}
+                onChange={onChange}
+                className="w-full px-3 py-2 rounded-lg text-sm bg-(--container-bg) border border-(--container-br) text-(--container-fg) placeholder-(--container-fg) focus:border-(--container-sub-nav-br-hover) outline-none transition-all"
+            />
+        </div>
         // <input
         //     type={type}
         //     value={value}

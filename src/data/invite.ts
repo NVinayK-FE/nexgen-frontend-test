@@ -1,4 +1,4 @@
-import { IProperty } from "./property";
+import { IProperty } from "@/data/property";
 
 export const PropertyScope = {
     ALL: "ALL",
@@ -17,10 +17,11 @@ export interface IPropertyScopeOption {
     label: string;
 }
 
-export const propertyScopeOptions: IPropertyScopeOption[] = Object.values(PropertyScope).map((value) => ({
-    value,
-    label: PROPERTYSCOPE_LABELS[value],
-}));
+export const propertyScopeOptions: IPropertyScopeOption[] =
+    Object.values(PropertyScope).map((value) => ({
+        value,
+        label: PROPERTYSCOPE_LABELS[value],
+    }));
 
 export interface IInviteUserData {
     email: string;

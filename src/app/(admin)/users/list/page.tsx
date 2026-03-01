@@ -1,10 +1,137 @@
+"use client";
+
 import CardSubTitle from "@/components/shared/core/card/card-sub-title";
 import CardTitle from "@/components/shared/core/card/card-title";
 import FlexRow from "@/components/shared/core/flex/flex-row";
+import Button from "@/components/shared/core/ui/button";
+import Input from "@/components/shared/core/ui/input";
+import { mockUsers, UserRowProps } from "@/data/user";
 import Card from "@core/card/card";
 import FlexCol from "@shared/core/flex/flex-col";
+import { Download, ListFilter, Search, SearchIcon, SquarePen, Trash2 } from "lucide-react";
+import { useState } from "react";
 
 const UsersListPage: React.FC = () => {
+    const [searchTerm, setSearchTerm] = useState("");
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [users] = useState(mockUsers);
+
+    const filteredUsers = users.filter(user =>
+        user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        user.role.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    const stats = {
+        totalUsers: 1284,
+        activeNow: 42,
+        pendingInvites: 8
+    };
+
+    const handleEdit = (user: typeof mockUsers[0]) => {
+        // TODO: Implement edit logic
+    };
+
+    const handleDelete = (user: typeof mockUsers[0]) => {
+        // TODO: Implement delete logic
+    };
+
+    const UserRow = ({ user, onEdit, onDelete }: UserRowProps) => {
+        const getRoleBadge = (role: string) => {
+            switch (role) {
+                case 'Admin':
+                    return {
+                        bg: 'bg-[#3B82F6]/10',
+                        border: 'border-[#3B82F6]/30',
+                        text: 'text-[#60A5FA]'
+                    };
+                case 'Editor':
+                case 'Viewer':
+                default:
+                    return {
+                        bg: 'bg-[#94A3B8]/10',
+                        border: 'border-[#94A3B8]/20',
+                        text: 'text-[#94A3B8]'
+                    };
+            }
+        };
+
+        const getStatus = (status: string) => {
+            switch (status) {
+                case 'Active':
+                    return {
+                        dot: 'bg-[#10B981]',
+                        text: 'text-[#10B981]'
+                    };
+                case 'Inactive':
+                    return {
+                        dot: 'bg-[#475569]',
+                        text: 'text-[#64748B]'
+                    };
+                case 'Pending':
+                    return {
+                        dot: 'bg-[#F59E0B]',
+                        text: 'text-[#F59E0B]'
+                    };
+                default:
+                    return {
+                        dot: 'bg-[#475569]',
+                        text: 'text-[#64748B]'
+                    };
+            }
+        };
+
+        const roleStyle = getRoleBadge(user.role);
+        const statusStyle = getStatus(user.status);
+
+        return (
+            <tr className="border-b border-[#1E2D42] last:border-b-0 hover:bg-[#3B82F6]/5 transition-colors">
+                <td className="py-3">
+                    <div className="flex items-center gap-3">
+                        <div
+                            className="w-8 h-8 rounded-full flex items-center justify-center text-xs text-white shrink-0"
+                            style={{ background: user.avatarColor }}
+                        >
+                            {user.initials}
+                        </div>
+                        <div className="text-sm">
+                            <div className="text-(--container-sub-nav-fg-hover)">{user.name}</div>
+                            <div className="text-xs mt-0.5">{user.joinedDate}</div>
+                        </div>
+                    </div>
+                </td>
+                <td className="py-3">{user.email}</td>
+                <td className="py-3">
+                    <span className={`text-xs uppercase`}>
+                        {user.role}
+                    </span>
+                </td>
+                <td className="py-3">
+                    <span className={`inline-flex items-center gap-1.5 text-[0.875rem] font-medium ${statusStyle.text}`}>
+                        <span className={`w-2 h-2 rounded-full ${statusStyle.dot}`} />
+                        {user.status}
+                    </span>
+                </td>
+                <td className="py-3 text-right">
+                    <div className="inline-flex items-center">
+                        <Button
+                            onClick={() => onEdit(user)}
+                            icon={SquarePen}
+                            buttonVariant="ghost"
+                            className="p-1"
+                        />
+                        <Button
+                            icon={Trash2}
+                            onClick={() => onDelete(user)}
+                            buttonVariant="ghost"
+                            className="p-1"
+                        />
+                    </div>
+                </td>
+            </tr>
+        );
+    };
+
     return (
         <FlexCol className="gap-6">
             <div className="grid grid-cols-3 gap-4">
@@ -51,131 +178,61 @@ const UsersListPage: React.FC = () => {
                 </Card>
             </div>
 
-            <Card>
-                <FlexRow className="items-center justify-between mb-4">
-                    <FlexCol>
-                        <CardTitle title="Pending Invitations" />
-                        <CardSubTitle title="Manage and track sent invitations that haven't been accepted yet." />
-                    </FlexCol>
-                    <div className="table-card-header">
-                        <div className="table-search-row">
-                            <div className="search-wrap">
-                                {/* <svg className="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg> */}
-                                {/* <input className="search-input" type="text" placeholder="Search recipients..."> */}
-                            </div>
-                            <button className="btn-filter w-4 h-4">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></svg>
-                            </button>
-                        </div>
-                    </div>
-                </FlexRow>
-            </Card>
+            <div className="flex gap-3 mb-6">
+                <div className="relative flex-1">
+                    <SearchIcon className="w-4 h-4 text-(--container-fg) absolute left-3 top-1/2 -translate-y-1/2" />
+                    <Input
+                        type="text"
+                        placeholder="Search users by name, email or role..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                </div>
+                <Button
+                    icon={ListFilter}
+                    onClick={() => { }}
+                    buttonVariant="outline"
+                    label="Filters"
+                />
+                <Button
+                    icon={Download}
+                    onClick={() => { }}
+                    label="Export"
+                    buttonVariant="outline"
+                />
+            </div>
 
             <Card>
-                <FlexRow className="items-center justify-between mb-4">
-                    <FlexCol>
-                        <CardTitle title="Pending Invitations" />
-                        <CardSubTitle title="Manage and track sent invitations that haven't been accepted yet." />
-                    </FlexCol>
-                    <div className="table-card-header">
-                        <div className="table-search-row">
-                            <div className="search-wrap">
-                                {/* <svg className="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg> */}
-                                {/* <input className="search-input" type="text" placeholder="Search recipients..."> */}
-                            </div>
-                            <button className="btn-filter w-4 h-4">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></svg>
-                            </button>
-                        </div>
-                    </div>
-                </FlexRow>
+                <table className="w-full border-collapse table-fixed">
+                    <colgroup>
+                        <col className="w-[29%]" />
+                        <col className="w-[25%]" />
+                        <col className="w-[14%]" />
+                        <col className="w-[16%]" />
+                        <col className="w-[16%]" />
+                    </colgroup>
+                    <thead>
+                        <tr className="border-b border(--container-br)">
+                            <th className="py-3 text-sm text-left"><span>User Details</span></th>
+                            <th className="py-3 text-sm text-left"><span>Email Address</span></th>
+                            <th className="py-3 text-sm text-left"><span>Role Type</span></th>
+                            <th className="py-3 text-sm text-left"><span>Status</span></th>
+                            <th className="py-3 text-sm text-right"><span>Actions</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {users.map((user) => (
+                            <UserRow
+                                key={user.id}
+                                user={user}
+                                onEdit={handleEdit}
+                                onDelete={handleDelete}
+                            />
+                        ))}
+                    </tbody>
+                </table>
             </Card>
-
-
-            <Card>
-                <FlexRow className="items-center justify-between mb-4">
-                    <FlexCol>
-                        <CardTitle title="Pending Invitations" />
-                        <CardSubTitle title="Manage and track sent invitations that haven't been accepted yet." />
-                    </FlexCol>
-                    <div className="table-card-header">
-                        <div className="table-search-row">
-                            <div className="search-wrap">
-                                {/* <svg className="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg> */}
-                                {/* <input className="search-input" type="text" placeholder="Search recipients..."> */}
-                            </div>
-                            <button className="btn-filter w-4 h-4">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></svg>
-                            </button>
-                        </div>
-                    </div>
-                </FlexRow>
-            </Card>
-
-
-
-            <Card>
-                <FlexRow className="items-center justify-between mb-4">
-                    <FlexCol>
-                        <CardTitle title="Pending Invitations" />
-                        <CardSubTitle title="Manage and track sent invitations that haven't been accepted yet." />
-                    </FlexCol>
-                    <div className="table-card-header">
-                        <div className="table-search-row">
-                            <div className="search-wrap">
-                                {/* <svg className="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg> */}
-                                {/* <input className="search-input" type="text" placeholder="Search recipients..."> */}
-                            </div>
-                            <button className="btn-filter w-4 h-4">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></svg>
-                            </button>
-                        </div>
-                    </div>
-                </FlexRow>
-            </Card>
-
-
-            <Card>
-                <FlexRow className="items-center justify-between mb-4">
-                    <FlexCol>
-                        <CardTitle title="Pending Invitations" />
-                        <CardSubTitle title="Manage and track sent invitations that haven't been accepted yet." />
-                    </FlexCol>
-                    <div className="table-card-header">
-                        <div className="table-search-row">
-                            <div className="search-wrap">
-                                {/* <svg className="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg> */}
-                                {/* <input className="search-input" type="text" placeholder="Search recipients..."> */}
-                            </div>
-                            <button className="btn-filter w-4 h-4">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></svg>
-                            </button>
-                        </div>
-                    </div>
-                </FlexRow>
-            </Card>
-
-
-            <Card>
-                <FlexRow className="items-center justify-between mb-4">
-                    <FlexCol>
-                        <CardTitle title="Pending Invitations" />
-                        <CardSubTitle title="Manage and track sent invitations that haven't been accepted yet." />
-                    </FlexCol>
-                    <div className="table-card-header">
-                        <div className="table-search-row">
-                            <div className="search-wrap">
-                                {/* <svg className="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg> */}
-                                {/* <input className="search-input" type="text" placeholder="Search recipients..."> */}
-                            </div>
-                            <button className="btn-filter w-4 h-4">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></svg>
-                            </button>
-                        </div>
-                    </div>
-                </FlexRow>
-            </Card>
-        </FlexCol>
+        </FlexCol >
 
     );
 }

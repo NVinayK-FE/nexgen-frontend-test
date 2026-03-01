@@ -1,11 +1,11 @@
-export interface LoginFormData {
+export interface ILoginFormData {
     email: string;
     password: string;
 }
 
-export interface LoginFormErrors {
+export interface ILoginFormErrors {
     email?: string;
     password?: string;
 }
 
-export type LoginFormFields = keyof LoginFormData;
+export type LoginFormFields = keyof ILoginFormData;

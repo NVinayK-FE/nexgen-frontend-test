@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form';
 import { Eye, EyeOff } from "lucide-react";
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { Button } from "@core/ui/button";
+import Button from "@core/ui/button";
 import Input from "@core/ui/input";
-import { LoginFormData } from "@/utils/auth/login";
+import { ILoginFormData } from "@/utils/auth/login";
 import { useTranslation } from "@/hooks/translation";
 import { getLoginFormSchema } from "@common/auth/login/login-form.schema";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@shared/core/form/form";
@@ -28,7 +28,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
         passwordRequired: t["password-required"],
     };
 
-    const form = useForm<LoginFormData>({
+    const form = useForm<ILoginFormData>({
         resolver: zodResolver(getLoginFormSchema({
             email: { requiredMsg: messages.emailRequired, invalidMsg: messages.emailInvalid },
             password: { requiredMsg: messages.passwordRequired }
@@ -45,7 +45,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
         );
     }
 
-    const onSubmitHandler = async (data: LoginFormData) => {
+    const onSubmitHandler = async (data: ILoginFormData) => {
         // const res = await login({
         //     email: data.email,
         //     password: data.password,
@@ -126,7 +126,9 @@ const LoginForm: React.FC<LoginFormProps> = ({
                                             {...field}
                                         />
                                     </FormControl>
-                                    <Button
+
+                                    <Button icon={Eye} />
+                                    {/* <Button
                                         variant="ghost"
                                         type="button"
                                         aria-label={showPassword ? 'Hide password' : 'Show password'}
@@ -134,20 +136,20 @@ const LoginForm: React.FC<LoginFormProps> = ({
                                         className="absolute inset-y-0 right-1 top-2 grid place-items-center p-0 h-6 w-6 min-w-0 cursor-pointer text-muted-foreground"
                                     >
                                         {showPassword ? <Eye className="size-4" /> : <EyeOff className="size-4" />}
-                                    </Button>
+                                    </Button> */}
                                 </div>
                                 <FormMessage />
 
+                                <Button label={t["forgot-password"]} />
 
-
-                                <Button
+                                {/* <Button
                                     variant="ghost"
                                     type="button"
                                     onClick={() => { }}
                                     className="ml-auto p-0 text-sm -mt-2 leading-5 font-normal text-muted-foreground hover:text-muted-foreground/80"
                                 >
                                     {t["forgot-password"]}
-                                </Button>
+                                </Button> */}
                             </FormItem>
                         )}
                     />

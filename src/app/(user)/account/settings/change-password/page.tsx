@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Lock, Info } from "lucide-react";
-import { Button } from "@shared/core/ui/button";
+import Button from "@core/ui/button";
 
 const ChangePasswordPage = () => {
     const [currentPassword, setCurrentPassword] = useState("");
@@ -70,7 +70,7 @@ const ChangePasswordPage = () => {
       hover:text-slate-50 hover:border-slate-600 hover:bg-slate-800 transition-all">
                             Cancel
                         </button>
-                        <Button>Update Password</Button>
+                        <Button label="Update Password" />
                     </div>
                 </form>
             </div>
