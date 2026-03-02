@@ -58,6 +58,9 @@ const HeaderContainer: React.FC = () => {
             </div>
             <div ref={dropdownRef} className="relative flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => setShowUserMenu(!showUserMenu)}>
                 {/* <Img src="https://i.pravatar.cc/150?img=12" alt="Admin" className="w-10 h-10 rounded-full" /> */}
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-800 flex items-center justify-center text-white text-xs font-bold">
+                    CG 
+                </div>
                 <div className="flex flex-col">
                     <span className="text-(--container-sub-nav-fg-hover) text-sm font-semibold">Caleb Griffin</span>
                     <span className="text-(--container-fg) text-xs text-left">Admin Access</span>
