@@ -1,7 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --page-bg: #020617;
+    --page-bg: #020617;
+    --page-fg: #ededed;
+    --container-bg: #0a1628;
+    --container-fg: #52627a;
+    --container-fg-prompt: #475569;
+    --container-br: #3b82f614;
+    --container-input-ph: #47556966;
+    --container-nav-bg-hover: #3b82f614;
+    --container-nav-fg-hover: #3b82f659;
+    --container-nav-bg-active: #3b82f659;
+    --container-nav-fg-active: #94a3b8;
+    --container-sub-nav-bg-hover: #28529714;
+    --container-sub-nav-fg-hover: #6484b2;
+    --container-sub-nav-br-hover: #3b82f633;
+    --container-sub-nav-bg-active: #3b82f61f;
+    --container-sub-nav-fg-active: #83b2ff59;
+    --container-sub-nav-br-active: #3b82f659;
+
+  /* --page-bg: #020617;
   --page-fg: #ededed;
 
   --container-bg:#0A1628;
@@ -13,7 +31,7 @@
   --container-nav-bg-hover: #3B82f614;
   --container-nav-fg-hover: #3b82f659;
 
-  --container-nav-bg-active: #3b82f659; /* #3B82f6 */
+  --container-nav-bg-active: #3b82f659; /* #3B82f6 * /
   --container-nav-fg-active: #94A3B8;
 
   --container-sub-nav-bg-hover: #3B82f614;
@@ -21,8 +39,8 @@
   --container-sub-nav-br-hover: #3B82F633;
 
   --container-sub-nav-bg-active: #3b82f61f;
-  --container-sub-nav-fg-active: #3b82f659; /* #60A5FA */
-  --container-sub-nav-br-active: #3b82f659;
+  --container-sub-nav-fg-active: #3b82f659; /* #60A5FA * /
+  --container-sub-nav-br-active: #3b82f659; */
 }
 
 @theme inline {

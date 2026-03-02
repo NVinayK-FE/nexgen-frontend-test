@@ -197,11 +197,6 @@ export const InvitePage: React.FC<IInvitePageProps> = ({ onSubmit }) => {
     return (
         <div>
             <ContentTitle title="Invite User" description="Add a new team member to your organization" />
-            {/* Page Header */}
-            <div className="mb-3">
-                <h1 className="text-2xl font-semibold text-(--container-sub-nav-fg-hover) mb-1">Invite User</h1>
-                <p className="text-sm text-(--container-fg)">Add a new team member to your organization</p>
-            </div>
 
             {/* Form Card */}
             <div className="t-card max-w-2xl">

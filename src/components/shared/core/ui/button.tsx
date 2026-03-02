@@ -20,7 +20,7 @@ const Button: React.FC<IButtonProps> = ({ onClick, icon: Icon, label, className,
                 buttonVariant === "default" && "t-container-sub-nav hover:t-container-sub-nav-hover",
                 buttonVariant === "ghost" && "t-container-sub-nav-hover",
                 buttonVariant === "outline" && "",
-                buttonVariant === "active" && "t-container-nav-active text-white hover:t-container-sub-nav-hover",
+                buttonVariant === "active" && "t-container-nav-active text-(--container-nav-active-fg) hover:t-container-sub-nav-hover",
                 className)}>
             {Icon && <Icon className="w-4 h-4" />}
             {label && <span>{label}</span>}

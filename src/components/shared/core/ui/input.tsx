@@ -29,11 +29,13 @@ function Input({
         <div className="relative">
             {Icon && <Icon className="w-4 h-4 text-(--container-fg) text-sm absolute left-10 top-1/2 -translate-y-1/2" />}
             <input
+                id='inputId'
+                name='inputName'
                 type={type}
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
-                className="w-full px-3 py-2 rounded-lg text-sm bg-(--container-bg) border border-(--container-br) text-(--container-fg) placeholder-(--container-fg) focus:border-(--container-sub-nav-br-hover) outline-none transition-all"
+                className="w-full px-3 py-2 rounded-lg text-sm bg-(--container-bg) border border-(--container-br) text-(--container-fg) placeholder-(--container-fg-prompt) focus:border-(--container-sub-nav-br-hover) outline-none transition-all"
             />
         </div>
         // <input
