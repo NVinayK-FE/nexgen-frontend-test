@@ -45,6 +45,7 @@ const HeaderContainer: React.FC = () => {
         </button>
     );
 
+    // Testing
     return (
         <header className={cn("t-header", styles.header)}>
             <div className="flex items-center gap-3">
