@@ -11,6 +11,7 @@ import { useUserStore } from "@/stores/user-store";
 import { IProperty } from "@/data/property";
 import { Content } from "next/font/google";
 import ContentTitle from "@/components/shared/content/content-title";
+import Button from "@/components/shared/core/ui/button";
 
 interface IInvitePageProps {
     onSubmit?: (data: IInviteUserData) => void;
@@ -240,15 +241,14 @@ export const InvitePage: React.FC<IInvitePageProps> = ({ onSubmit }) => {
                     {inviteFormData.role != "" && <PropertyScopeComponent />}
 
                     < div className="p-8 flex justify-end gap-3" >
-                        <button type="button" className="px-6 py-2 rounded-lg border border-(--container-sub-nav-br) text-(--container-sub-nav-fg) hover:bg-(--container-sub-nav-bg-hover) transition-colors">
-                            Cancel
-                        </button>
-                        <button
-                            type="submit"
-                            className="px-6 py-2 rounded-lg bg-(--container-sub-nav-bg-active) text-(--container-sub-nav-fg-active) hover:bg-(--container-sub-nav-bg-hover) transition-colors font-semibold"
-                        >
-                            Send Invite
-                        </button>
+                        <Button
+                            label="Cancel"
+                            buttonVariant="outline"
+                        />
+                        <Button
+                            buttonVariant="active"
+                            label="Send Invite"
+                        />
                     </div>
                 </form>
             </div >

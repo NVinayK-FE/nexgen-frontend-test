@@ -48,12 +48,7 @@ const ChangePasswordPage = () => {
                             value={currentPassword}
                             onChange={(e) => setCurrentPassword(e.target.value)}
                             placeholder="Enter your current password"
-                            className="w-full px-4 py-3.5 rounded-xl text-sm 
-                                        bg-slate-800 border border-slate-600 
-                                        text-slate-50 placeholder:text-slate-500 
-                                        focus:outline-none focus:border-slate-400 
-                                        focus:bg-slate-900 focus:ring-4 focus:ring-slate-400/10 
-                                        transition-all duration-300 pr-12"
+                            className="w-full px-4 py-3.5 rounded-xl text-sm transition-all duration-300 pr-12"
                         />
                         <Button
                             icon={showPassword ? EyeOff : Eye}
@@ -80,12 +75,7 @@ const ChangePasswordPage = () => {
                                 value={newPassword}
                                 onChange={(e) => setNewPassword(e.target.value)}
                                 placeholder="Enter your new password"
-                                className="w-full px-4 py-3.5 rounded-xl text-sm 
-                                        bg-slate-800 border border-slate-600 
-                                        text-slate-50 placeholder:text-slate-500 
-                                        focus:outline-none focus:border-slate-400 
-                                        focus:bg-slate-900 focus:ring-4 focus:ring-slate-400/10 
-                                        transition-all duration-300 pr-12"
+                                className="w-full px-4 py-3.5 rounded-xl text-sm transition-all duration-300 pr-12"
                             />
                             <Button
                                 icon={showPassword ? EyeOff : Eye}
@@ -109,12 +99,7 @@ const ChangePasswordPage = () => {
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
                                 placeholder="Enter your new password"
-                                className="w-full px-4 py-3.5 rounded-xl text-sm 
-                                        bg-slate-800 border border-slate-600 
-                                        text-slate-50 placeholder:text-slate-500 
-                                        focus:outline-none focus:border-slate-400 
-                                        focus:bg-slate-900 focus:ring-4 focus:ring-slate-400/10 
-                                        transition-all duration-300 pr-12"
+                                className="w-full px-4 py-3.5 rounded-xl text-sm transition-all duration-300 pr-12"
                             />
                             <Button
                                 icon={showPassword ? EyeOff : Eye}

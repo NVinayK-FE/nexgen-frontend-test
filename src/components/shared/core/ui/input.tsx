@@ -35,7 +35,11 @@ function Input({
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
-                className="w-full px-3 py-2 rounded-lg text-sm bg-(--container-bg) border border-(--container-br) text-(--container-fg) placeholder-(--container-fg-prompt) focus:border-(--container-sub-nav-br-hover) outline-none transition-all"
+                className={cn(`w-full px-3 py-2 rounded-lg text-sm bg-(--container-bg) border border-(--container-br) 
+                    text-(--container-fg) placeholder-(--container-fg-prompt) 
+                    hover:border-(--container-sub-nav-br-hover)
+                    focus:border-(--container-sub-nav-br-hover) outline-none transition-all`,
+                    className)}
             />
         </div>
         // <input

@@ -16,11 +16,11 @@ interface IButtonProps {
 const Button: React.FC<IButtonProps> = ({ onClick, icon: Icon, label, className, buttonVariant = "default" }) => {
     return (
         <button onClick={onClick} className={
-            cn("inline-flex items-center gap-2 px-3 py-2 rounded-lg transition-all whitespace-nowrap cursor-pointer",
-                buttonVariant === "default" && "t-container-sub-nav hover:t-container-sub-nav-hover",
-                buttonVariant === "ghost" && "t-container-sub-nav-hover",
-                buttonVariant === "outline" && "",
-                buttonVariant === "active" && "t-container-nav-active text-(--container-nav-active-fg) hover:t-container-sub-nav-hover",
+            cn("inline-flex items-center gap-2 text-sm px-3 py-2 rounded-lg transition-all whitespace-nowrap cursor-pointer border border-transparent",
+                buttonVariant === "default" && "t-container-sub-nav hover:border-(--container-sub-nav-br-hover)",
+                buttonVariant === "ghost" && "hover:border-(--container-sub-nav-br-hover)",
+                buttonVariant === "outline" && "t-container-sub-nav-hover hover:border-(--container-sub-nav-br-hover)",
+                buttonVariant === "active" && "t-container-nav-active hover:border-(--container-sub-nav-br-active)",
                 className)}>
             {Icon && <Icon className="w-4 h-4" />}
             {label && <span>{label}</span>}

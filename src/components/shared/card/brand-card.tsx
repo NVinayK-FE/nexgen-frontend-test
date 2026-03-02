@@ -19,7 +19,7 @@ const BrandCard: React.FC<IBrandCardProps> = ({
     className
 }: IBrandCardProps) => {
     return (
-        <Card className={cn("flex flex-col items-center p-9 rounded-2xl", className)}>
+        <Card className={cn("max-w-xl flex flex-col items-center p-9 rounded-2xl", className)}>
             <Image
                 src="/logow.webp"
                 alt={imageTitle}

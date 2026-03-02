@@ -12,8 +12,8 @@ export const ROLES = {
 export type Role = (typeof ROLES)[keyof typeof ROLES];
 
 export const ROLE_LABELS: Record<Role, string> = {
-    [ROLES.MASTER_ADMIN]: "Master Admin, [Full Access to All Properties]",
-    [ROLES.SUPER_ADMIN]: "Super Admin [Full Access to Chain of Properties]",
+    [ROLES.MASTER_ADMIN]: "Master Admin",
+    [ROLES.SUPER_ADMIN]: "Super Admin",
     [ROLES.HOTEL_ADMIN]: "Hotel Admin",
     [ROLES.HOTEL_STAFF]: "Hotel Staff",
     [ROLES.HOTEL_GUEST]: "Hotel Guest",

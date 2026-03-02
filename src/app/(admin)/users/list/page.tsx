@@ -117,13 +117,13 @@ const UsersListPage: React.FC = () => {
                         <Button
                             onClick={() => onEdit(user)}
                             icon={SquarePen}
-                            buttonVariant="ghost"
+                            buttonVariant="outline"
                             className="p-1"
                         />
                         <Button
                             icon={Trash2}
                             onClick={() => onDelete(user)}
-                            buttonVariant="ghost"
+                            buttonVariant="outline"
                             className="p-1"
                         />
                     </div>
@@ -191,14 +191,12 @@ const UsersListPage: React.FC = () => {
                 <Button
                     icon={ListFilter}
                     onClick={() => { }}
-                    buttonVariant="outline"
                     label="Filters"
                 />
                 <Button
                     icon={Download}
                     onClick={() => { }}
                     label="Export"
-                    buttonVariant="outline"
                 />
             </div>
 

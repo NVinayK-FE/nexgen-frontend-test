@@ -37,13 +37,13 @@ const LoginForm: React.FC<LoginFormProps> = ({
         mode: 'onBlur',
     });
 
-    if (isLoading) {
-        return (
-            <div className="text-sm font-light tracking-wide">
-                Loading...
-            </div>
-        );
-    }
+    // if (isLoading) {
+    //     return (
+    //         <div className="text-sm font-light tracking-wide">
+    //             Loading...
+    //         </div>
+    //     );
+    // }
 
     const onSubmitHandler = async (data: ILoginFormData) => {
         // const res = await login({
@@ -76,7 +76,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
     return (
         <FlexCol>
-            <div className="text-(--container-sub-nav-fg-hover) w-full text-center py-2 pb-4">{t['title']}</div>
+            <div className="text-(--container-sub-nav-fg-hover) w-full text-center py-2 pb-4">Sign in to your account
+            </div>
 
             <Form {...form}>
                 <form
@@ -94,7 +95,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel htmlFor="email" className="text-sm leading-5 font-medium">
-                                    {t["email"]}
+                                    Email
                                 </FormLabel>
                                 <FormControl>
                                     <Input
@@ -114,7 +115,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel htmlFor="password" className="text-sm">
-                                    {t["password"]}
+                                    Password
                                 </FormLabel>
                                 <div className="relative">
                                     <FormControl>
@@ -127,7 +128,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                                         />
                                     </FormControl>
 
-                                    <Button icon={Eye} />
+                                    {/* <Button icon={Eye} /> */}
                                     {/* <Button
                                         variant="ghost"
                                         type="button"
@@ -140,7 +141,11 @@ const LoginForm: React.FC<LoginFormProps> = ({
                                 </div>
                                 <FormMessage />
 
-                                <Button label={t["forgot-password"]} />
+                                <div className="flex flex-row justify-between gap-2 mb-4" >
+                                    <Button label="Forgot Password?" />
+                                    <Button className="w-[120px] flex justify-center items-center" label="Submit" buttonVariant="active" />
+                                </div>
+
 
                                 {/* <Button
                                     variant="ghost"
@@ -155,7 +160,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                     />
                 </form>
             </Form>
-        </FlexCol>
+        </FlexCol >
     );
 };
 
