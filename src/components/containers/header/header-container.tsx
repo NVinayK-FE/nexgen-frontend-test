@@ -4,6 +4,9 @@ import { cn } from "@/lib/cn";
 import styles from "@containers/header/header-container.module.css";
 import { useEffect, useRef, useState } from "react";
 import Divider from "@/components/shared/divider";
+import { useRouter } from "next/navigation";
+import { goToChangePassword, goToLogout } from "@/utils/route";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 interface IDropdownItem {
     icon?: LucideIcon;
@@ -13,6 +16,7 @@ interface IDropdownItem {
 }
 
 const HeaderContainer: React.FC = () => {
+    const router = useRouter();
     const [showUserMenu, setShowUserMenu] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -27,13 +31,14 @@ const HeaderContainer: React.FC = () => {
     }, []);
 
 
-    const DropdownItem = ({ icon: Icon, label, selected }: IDropdownItem) => (
+    const DropdownItem = ({ icon: Icon, label, selected, onClick }: IDropdownItem & { onClick?: () => void }) => (
         <button
             className={cn(
                 `cursor-pointer w-full text-left flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors
                 hover:bg-(--container-sub-nav-bg-hover) hover:text-(--container-sub-nav-fg-hover)`,
                 selected && "bg-(--container-sub-nav-bg-active) text-(--container-sub-nav-fg-active)"
             )}
+            onClick={onClick}
         >
             <span className="w-4 h-4">{Icon && <Icon className="w-4 h-4" />}</span>
             {label}
@@ -72,9 +77,9 @@ const HeaderContainer: React.FC = () => {
                         <Divider />
                         <DropdownItem icon={BookOpen} label="My Guides" />
                         <DropdownItem icon={Settings} label="UI Settings" />
-                        <DropdownItem icon={Lock} label="Password Reset" />
+                        <DropdownItem icon={Lock} label="Password Reset" onClick={() => goToChangePassword(router)} />
                         <Divider />
-                        <DropdownItem icon={LogOut} label="Logout" color="#EF4444" />
+                        <DropdownItem icon={LogOut} label="Logout" color="#EF4444" onClick={() => goToLogout(router)} />
                     </div>
                 )}
             </div>

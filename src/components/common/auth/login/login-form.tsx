@@ -10,6 +10,8 @@ import { useTranslation } from "@/hooks/translation";
 import { getLoginFormSchema } from "@common/auth/login/login-form.schema";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@shared/core/form/form";
 import FlexCol from "@/components/shared/core/flex/flex-col";
+import { goToChangePassword } from "@/utils/route";
+import { useRouter } from "next/navigation";
 
 interface LoginFormProps {
     onSubmit: (email: string, password: string) => void;
@@ -18,6 +20,8 @@ interface LoginFormProps {
 const LoginForm: React.FC<LoginFormProps> = ({
     onSubmit
 }: LoginFormProps) => {
+    const router = useRouter();
+
     const { t, isLoading } = useTranslation("login-form");
 
     const [showPassword, setShowPassword] = useState(false);
@@ -36,6 +40,10 @@ const LoginForm: React.FC<LoginFormProps> = ({
         defaultValues: { email: '', password: '' },
         mode: 'onBlur',
     });
+
+    const onSubmitH = () => {
+        goToChangePassword(router);
+    };
 
     // if (isLoading) {
     //     return (
@@ -143,7 +151,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
                                 <div className="flex flex-row justify-between gap-2 mb-4" >
                                     <Button label="Forgot Password?" />
-                                    <Button className="w-[120px] flex justify-center items-center" label="Submit" buttonVariant="active" />
+                                    <Button className="w-[120px] flex justify-center items-center" label="Submit" buttonVariant="active" onClick={onSubmitH} />
                                 </div>
 
 

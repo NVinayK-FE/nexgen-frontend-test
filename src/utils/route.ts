@@ -13,6 +13,10 @@ export const goToSignIn = (router: AppRouterInstance) => {
     router.push(ROUTES.SIGN_IN);
 }
 
+export const goToLogout = (router: AppRouterInstance) => {
+    router.push(ROUTES.LOGOUT);
+}
+
 export const goToChangePassword = (router: AppRouterInstance) => {
     router.push(ROUTES.CHANGE_PASSWORD);
 }

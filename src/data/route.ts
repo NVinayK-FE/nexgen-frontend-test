@@ -1,6 +1,7 @@
 export const ROUTES: Record<string, string> = {
     DASHBOARD: "/dashboard",
-    SIGN_IN: "/auth/sign-in",
+    SIGN_IN: "/users/sign_in",
+    LOGOUT: "/users/logout",
 
     USERS_LIST: "/users/list",
     USERS_ROLES: "/users/roles",
