@@ -9,7 +9,7 @@ interface IButtonProps {
     icon?: LucideIcon
     label?: string;
     className?: string;
-    buttonVariant?: "default" | "ghost" | "outline" | "active";
+    buttonVariant?: "default" | "ghost" | "outline" | "active" | 'tertiary';
 }
 
 
@@ -17,10 +17,11 @@ const Button: React.FC<IButtonProps> = ({ onClick, icon: Icon, label, className,
     return (
         <button onClick={onClick} className={
             cn("inline-flex items-center gap-2 text-sm px-3 py-2 rounded-lg transition-all whitespace-nowrap cursor-pointer border border-transparent",
-                buttonVariant === "default" && "t-container-sub-nav hover:border-(--container-sub-nav-br-hover)",
-                buttonVariant === "ghost" && "hover:border-(--container-sub-nav-br-hover)",
-                buttonVariant === "outline" && "t-container-sub-nav-hover hover:border-(--container-sub-nav-br-hover)",
-                buttonVariant === "active" && "t-container-nav-active hover:border-(--container-sub-nav-br-active)",
+                buttonVariant === "default" && "hover:theme-layer-secondary-hover-border",
+                buttonVariant === "ghost" && "hover:theme-layer-secondary-hover-border",
+                buttonVariant === "outline" && "theme-layer-secondary-hover hover:theme-layer-secondary-hover-border",
+                buttonVariant === "active" && "theme-layer-primary-active hover:theme-layer-primary-active-border",
+                buttonVariant === "tertiary" && "text-(--color-layer-tertiary)",
                 className)}>
             {Icon && <Icon className="w-4 h-4" />}
             {label && <span>{label}</span>}

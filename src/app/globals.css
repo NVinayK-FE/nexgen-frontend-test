@@ -1,98 +1,219 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 @import "tailwindcss";
 
+/** Theming convention **/
+/* --color-[category]-[state] */
+
+
+.root_theme {
+  /* =======================================================
+     FOUNDATION / BACKGROUND LAYER
+     ======================================================= */
+
+  --color-base: #0a1628;              /* Main app background */
+  --color-layer: #0f172a;             /* Cards, containers */
+  --color-floating: #1e293b;          /* Elevated panels, dropdowns */
+  --color-overlay: #020617;           /* Modal overlay surface */
+
+  /* =======================================================
+     BORDER / DIVIDER LAYER
+     ======================================================= */
+
+  --color-border: #334155;                  /* Default border */
+  --color-border-muted: #475569;           /* Subtle borders */
+  --color-border-strong: #64748b;        /* Strong emphasis border */
+  --color-divider: #1e293b;                 /* Section separators */
+  --color-outline: #3b82f6;               /* Focus outline color */
+
+  /* =======================================================
+     TEXT LAYER (CONTENT HIERARCHY)
+     ======================================================= */
+  --color-base-primary: #f1f5f9;         /* title color for base background */ 
+  --color-base-secondary: #94a3b8;       /* text color for base background */
+  --color-base-tertiary: #64748b;        /* Low emphasis text */
+  --color-base-muted: #475569;             /* Muted/metadata */
+  --color-base-disabled: #4b5563;           /* Disabled text */
+  --color-base-inverse: #0f172a;            /* Text on light background */
+  --color-base-placeholder: #788296;     /* Input placeholder text */
+
+  --color-layer-primary: #f1f5f9;         /* Main readable text */
+  --color-layer-secondary: #94a3b8;       /* Secondary text */
+  --color-layer-tertiary: #64748b;        /* Low emphasis text */
+  --color-layer-muted: #475569;             /* Muted/metadata */
+  --color-layer-disabled: #4b5563;           /* Disabled text */
+  --color-layer-inverse: #0f172a;            /* Text on light background */
+  --color-layer-placeholder: #788296;     /* Input placeholder text */
+
+  --color-elevated-primary: #f1f5f9;         /* Main readable text */
+  --color-elevated-secondary: #94a3b8;       /* Secondary text */
+  --color-elevated-tertiary: #64748b;        /* Low emphasis text */
+  --color-elevated-muted: #475569;             /* Muted/metadata */
+  --color-elevated-disabled: #4b5563;           /* Disabled text */
+  --color-elevated-inverse: #0f172a;            /* Text on light background */
+  --color-elevated-placeholder: #788296;     /* Input placeholder text */
+
+  --color-overlay-primary: #f1f5f9;         /* Main readable text */
+  --color-overlay-secondary: #94a3b8;       /* Secondary text */
+  --color-overlay-tertiary: #64748b;        /* Low emphasis text */
+  --color-overlay-muted: #475569;             /* Muted/metadata */
+  --color-overlay-disabled: #4b5563;           /* Disabled text */
+  --color-overlay-inverse: #0f172a;            /* Text on light background */
+  --color-overlay-placeholder: #788296;     /* Input placeholder text */
+
+  /* =======================================================
+     BRAND / PRIMARY ACTIONS
+     ======================================================= */
+
+  --color-primary: #3b82f6;                /* Primary action */
+  --color-primary-hover: #2563eb;          /* Primary hover */
+  --color-primary-active: #1d4ed8;         /* Primary active */
+  --color-primary-foreground: #ffffff;     /* Text on primary */
+
+  --color-secondary: #6366f1;              /* Secondary action */
+  --color-secondary-hover: #4f46e5;        /* Secondary hover */
+  --color-secondary-active: #4338ca;       /* Secondary active */
+  --color-secondary-foreground: #ffffff;   /* Text on secondary */
+
+  /* =======================================================
+     STATUS / FEEDBACK COLORS
+     ======================================================= */
+
+  --color-success: #22c55e;                /* Success state */
+  --color-success-hover: #16a34a;          /* Success hover */
+  --color-success-foreground: #ffffff;     /* Text on success */
+
+  --color-warning: #fbbf24;                /* Warning state */
+  --color-warning-hover: #f59e0b;          /* Warning hover */
+  --color-warning-foreground: #0f172a;     /* Text on warning */
+
+  --color-error: #f87171;                  /* Error state */
+  --color-error-hover: #ef4444;            /* Error hover */
+  --color-error-foreground: #ffffff;       /* Text on error */
+
+  --color-info: #0ea5e9;                   /* Info state */
+  --color-info-hover: #0284c7;             /* Info hover */
+  --color-info-foreground: #ffffff;        /* Text on info */
+
+  /* =======================================================
+     INTERACTION STATES
+     ======================================================= */
+
+  --color-hover: #1e293b;                  /* Generic hover background */
+  --color-active: #334155;                 /* Generic active background */
+  --color-disabled: #374151;               /* Disabled background */
+  --color-focus: #3b82f6;                  /* Focus ring color */
+  --color-ring: #3b82f6;                   /* Accessible focus ring */
+
+  /* =======================================================
+     EXTENDED / OPTIONAL TOKENS
+     ======================================================= */
+
+  --color-accent: #a855f7;                /* Accent highlight */
+  --color-accent-hover: #9333ea;          /* Accent hover */
+  --color-muted: #475569;                 /* Muted surface */
+  --color-muted-foreground: #94a3b8;      /* Text on muted surface */
+  --color-overlay-backdrop: #000000;      /* Modal backdrop */
+  --color-skeleton: #334155;              /* Skeleton loaders */
+  --color-selection: #3b82f6;             /* Text selection highlight */
+}
+
 :root {
-    --page-bg: #020617;
-    --page-fg: #ededed;
-    --container-bg: #1E293B;
-    --container-fg: #475569;
-    --container-fg-prompt: #475569;
-    --container-br: #3b82f614;
-    --container-input-ph: #47556966;
-    --container-nav-bg-hover: #3b82f614;
-    --container-nav-fg-hover: #3b82f659;
-    --container-nav-bg-active: #3b82f659;
-    --container-nav-fg-active: #94a3b8;
-    --container-sub-nav-bg-hover: #28529714;
-    --container-sub-nav-fg-hover: #6484b2;
-    --container-sub-nav-br-hover: #3b82f633;
-    --container-sub-nav-bg-active: #3b82f61f;
-    --container-sub-nav-fg-active: #83b2ff59;
-    --container-sub-nav-br-active: #3b82f659;
+    --color-base: #020617;
+    --color-base-secondary: #ededed;
+    --color-base-tertiary: #475569;
 
-  /* --page-bg: #020617;
-  --page-fg: #ededed;
+    --color-layer: #1E293B;
+    --color-layer-tertiary: #475569;
 
-  --container-bg:#0A1628;
-  --container-fg: #475569;
-  --container-br: #3b82f614;
+    --color-layer-primary: #94a3b8;
+    --color-layer-primary-hover: #3b82f614;
+    --color-layer-primary-active: #3b82f659;
 
-  --container-input-ph: #47556966;
+    --color-layer-secondary: #6484b2;
+    --color-layer-secondary-hover: #28529714;
+    --color-layer-secondary-active: #3b82f61f;
+    --color-border-tertiary: #3b82f614;
 
-  --container-nav-bg-hover: #3B82f614;
-  --container-nav-fg-hover: #3b82f659;
-
-  --container-nav-bg-active: #3b82f659; /* #3B82f6 * /
-  --container-nav-fg-active: #94A3B8;
-
-  --container-sub-nav-bg-hover: #3B82f614;
-  --container-sub-nav-fg-hover: #94A3B8;
-  --container-sub-nav-br-hover: #3B82F633;
-
-  --container-sub-nav-bg-active: #3b82f61f;
-  --container-sub-nav-fg-active: #3b82f659; /* #60A5FA * /
-  --container-sub-nav-br-active: #3b82f659; */
+    --font-sans-family: 'Inter', sans-serif;
 }
 
 @theme inline {
   --text-2xs: 10px;
   --text-13: 13px;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-/* 
-@media (prefers-color-scheme: dark) {
-  :root {
-  }
-} */
-
-@utility t-page {
-  @apply bg-(--page-bg) text-(--page-fg);
+  --font-sans: var(--font-sans-family);
 }
 
-/* Header */
-@utility t-header {
-  @apply bg-(--container-bg) border-b border-(--container-br);
+@utility theme-base {
+  @apply bg-(--color-base) text-(--color-base-tertiary);
 }
 
-/* Nav container */
-@utility t-container-nav {
-  @apply bg-(--container-bg) text-(--container-fg) border-r border-(--container-br);
+@utility theme-layer {
+  @apply bg-(--color-layer) text-sm text-(--color-layer-tertiary);
 }
 
-@utility t-container-nav-hover {
-  @apply bg-(--container-nav-bg-hover) text-(--container-nav-fg-hover);
+@utility theme-layer-divider {
+  @apply bg-(--color-layer-tertiary) h-px w-full;
 }
 
-@utility t-container-nav-active {
-  @apply bg-(--container-nav-bg-active) text-(--container-nav-fg-active);
+@utility theme-layer-border {
+  @apply border border-(--color-border-tertiary);
 }
 
-/* Sub Nav Container */
-@utility t-container-sub-nav {
-  @apply bg-(--container-bg) text-(--container-fg) border-r border-(--container-br);
+@utility theme-layer-border-right {
+  @apply border-r border-(--color-border-tertiary);
 }
 
-@utility t-container-sub-nav-hover {
-  @apply bg-(--container-sub-nav-bg-hover) text-(--container-sub-nav-fg-hover) border-(--container-sub-nav-br-hover);
+@utility theme-layer-border-bottom {
+  @apply border-b border-(--color-border-tertiary);
 }
 
-@utility t-container-sub-nav-active {
-  @apply bg-(--container-sub-nav-bg-active) text-(--container-sub-nav-fg-active) border-(--container-sub-nav-br-active);
+@utility theme-layer-border-top {
+  @apply border-t border-(--color-border-tertiary);
 }
 
-/* Card */
-@utility t-card {
-  @apply bg-(--container-bg) text-(--container-fg) border border-(--container-br) p-7 sm:p-3 md:p-5 rounded-xl;
+@utility theme-layer-primary {
+  @apply text-(--color-layer-primary-active);
+}
+
+@utility theme-layer-primary-hover {
+  @apply bg-(--color-layer-primary-hover) theme-layer-primary;
+}
+
+@utility theme-layer-primary-hover-border {
+  @apply theme-layer-primary-hover border border-(--color-layer-primary-active);
+}
+
+@utility theme-layer-primary-active {
+  @apply bg-(--color-layer-primary-active) text-(--color-layer-primary);
+}
+
+@utility theme-layer-primary-active-border {
+  @apply theme-layer-primary-active border border-(--color-layer-primary-hover);
+}
+
+@utility theme-layer-secondary {
+  @apply text-(--color-layer-secondary);
+}
+
+@utility theme-layer-secondary-hover {
+  @apply bg-(--color-layer-secondary-hover) border border-transparent;
+}
+
+@utility theme-layer-secondary-hover-border {
+  @apply theme-layer-secondary-hover border border-(--color-layer-secondary-active);
+}
+
+@utility theme-layer-secondary-active {
+  @apply bg-(--color-layer-secondary-active) theme-layer-secondary;
+}
+
+@utility theme-layer-secondary-active-border {
+  @apply theme-layer-secondary-active border border-(--color-layer-secondary-hover);
+}
+
+@utility theme-card {
+  @apply theme-layer theme-layer-border p-7 sm:p-3 md:p-5 rounded-xl;
 }
 
 @utility t-max-h-screen-header {
@@ -102,9 +223,9 @@
 /* Scrollbar styling */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--container-sub-nav-bg-hover) var(--container-bg);
+  scrollbar-color: var(--color-layer-tertiary) var(--color-layer);
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }

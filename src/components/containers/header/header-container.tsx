@@ -34,9 +34,9 @@ const HeaderContainer: React.FC = () => {
     const DropdownItem = ({ icon: Icon, label, selected, onClick }: IDropdownItem & { onClick?: () => void }) => (
         <button
             className={cn(
-                `cursor-pointer w-full text-left flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors
-                hover:bg-(--container-sub-nav-bg-hover) hover:text-(--container-sub-nav-fg-hover)`,
-                selected && "bg-(--container-sub-nav-bg-active) text-(--container-sub-nav-fg-active)"
+                `cursor-pointer w-full text-left flex items-center gap-2 px-3 py-2 rounded-lg transition-colors
+                hover:theme-layer-secondary-hover`,
+                selected && "theme-layer-primary-active"
             )}
             onClick={onClick}
         >
@@ -46,7 +46,7 @@ const HeaderContainer: React.FC = () => {
     );
 
     return (
-        <header className={cn("t-header", styles.header)}>
+        <header className={cn("theme-layer theme-layer-border-bottom", styles.header)}>
             <div className="flex items-center gap-3">
                 <Image
                     src="/logow.webp"
@@ -56,16 +56,16 @@ const HeaderContainer: React.FC = () => {
                     priority
                 />
             </div>
-            <div ref={dropdownRef} className="relative flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => setShowUserMenu(!showUserMenu)}>
+            <div ref={dropdownRef} className="relative flex items-center gap-3 cursor-pointer" onClick={() => setShowUserMenu(!showUserMenu)}>
                 {/* <Img src="https://i.pravatar.cc/150?img=12" alt="Admin" className="w-10 h-10 rounded-full" /> */}
                 <div className="flex flex-col">
-                    <span className="text-(--container-sub-nav-fg-hover) text-sm font-semibold">Caleb Griffin</span>
-                    <span className="text-(--container-fg) text-xs text-left">Admin Access</span>
+                    <span className="theme-layer-secondary font-semibold">Caleb Griffin</span>
+                    <span className="text-xs">Admin Access</span>
                 </div>
-                <ChevronDown className="w-4 h-4 text-(--container-sub-nav-fg-hover)" />
+                <ChevronDown className="w-4 h-4 theme-layer-secondary" />
 
                 {showUserMenu && (
-                    <div className="absolute t-card rounded-tl-none rounded-tr-none right-0 top-[calc(100%+20px)] w-[234px] shadow-2xl p-1.5 z-[9999]">
+                    <div className="absolute theme-card rounded-tl-none rounded-tr-none right-0 top-[calc(100%+20px)] w-[234px] shadow-2xl p-1.5 z-[9999]">
                         {/* Hotel switcher */}
                         <div className="px-1.5 pb-2.5 mb-1">
                             <p className="text-[0.625rem] font-bold text-[#475569] uppercase tracking-wider ml-1.5 mb-1.5">

@@ -25,11 +25,15 @@ const ReactSelect: React.FC<IReactSelectProps> = ({
             onValueChange={onChange}
         >
             <Select.Trigger
-                className="w-full px-3 py-2 rounded-lg text-sm bg-(--container-bg) border border-(--container-br) text-(--container-fg) focus-visible:border-(--container-sub-nav-br-hover) outline-none transition-all flex items-center justify-between data-[state=open]:border-(--container-sub-nav-br-hover) data-[state=open]:bg-(--container-bg)/80"
+                className={`theme-layer-border w-full px-3 py-2 rounded-lg flex items-center justify-between cursor-default
+                    outline-none transition-all
+                    hover:theme-layer-secondary-hover-border
+                    focus-visible:theme-layer-secondary-hover-border 
+                    data-[state=open]:theme-layer data-[state=open]:rounded-bl-none data-[state=open]:rounded-br-none data-[state=open]:border-t`}
             >
                 <Select.Value placeholder={placeholder} />
                 <Select.Icon>
-                    <ChevronDown className="w-4 h-4 text-(--container-fg)" />
+                    <ChevronDown className="w-4 h-4" />
                 </Select.Icon>
             </Select.Trigger>
             <Select.Portal>
@@ -38,7 +42,9 @@ const ReactSelect: React.FC<IReactSelectProps> = ({
                     side="bottom"
                     align="start"
                     sideOffset={0}
-                    className="z-50 rounded-lg border border-(--container-br) bg-(--container-bg) shadow-lg w-[var(--radix-select-trigger-width)]"
+                    className={`theme-layer theme-layer-border z-50 rounded-lg shadow-lg
+                        rounded-tl-none rounded-tr-none border-t
+                        w-[var(--radix-select-trigger-width)]`}
                 >
                     <Select.Viewport className="p-1 w-full">
                         {
@@ -46,7 +52,7 @@ const ReactSelect: React.FC<IReactSelectProps> = ({
                                 <Select.Item
                                     key={option.value}
                                     value={option.value}
-                                    className="px-3 py-2 text-sm text-(--container-fg) rounded-md cursor-pointer outline-none data-[highlighted]:bg-(--container-nav-bg-hover) data-[highlighted]:text-(--container-nav-fg-hover)"
+                                    className="px-3 py-2 rounded-md cursor-pointer outline-none data-[highlighted]:theme-layer-primary-hover"
                                 >
                                     <Select.ItemText>{option.label}</Select.ItemText>
                                 </Select.Item>
@@ -55,7 +61,7 @@ const ReactSelect: React.FC<IReactSelectProps> = ({
                     </Select.Viewport>
                 </Select.Content>
             </Select.Portal>
-        </Select.Root>
+        </Select.Root >
     );
 };
 

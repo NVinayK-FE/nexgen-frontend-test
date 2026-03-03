@@ -10,7 +10,7 @@ const Card: React.FC<ICardProps> = ({
   className,
 }: ICardProps) => {
   return (
-    <div className={cn("t-card", className)}>
+    <div className={cn("theme-card", className)}>
       {children}
     </div>
   );

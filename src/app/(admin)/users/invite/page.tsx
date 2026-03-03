@@ -78,14 +78,14 @@ export const InvitePage: React.FC<IInvitePageProps> = ({ onSubmit }) => {
                                         setPropertyScope(propertyScope.value);
                                     }}
                                     className={cn(
-                                        "flex flex-col items-center gap-2 py-4 px-3 rounded-lg border border-(--container-br) transition-all",
+                                        "flex flex-col items-center gap-2 py-4 px-3 rounded-lg theme-layer-border transition-all",
                                         inviteFormData.propertyScope === propertyScope.value
-                                            ? "bg-(--container-sub-nav-bg-active)"
-                                            : "cursor-pointer hover:bg-(--container-sub-nav-bg-hover)"
+                                            ? "theme-layer-secondary-hover"
+                                            : "cursor-pointer hover:theme-layer-secondary-hover",
                                     )}
                                 >
-                                    <Building2 className={cn("w-5 h-5", inviteFormData.propertyScope === propertyScope.value ? "text-(--container-sub-nav-fg-active)" : "text-(--container-fg)")} />
-                                    <span className={cn("text-sm font-bold", inviteFormData.propertyScope === propertyScope.value ? "text-(--container-sub-nav-fg-active)" : "text-(--container-fg)")}>
+                                    <Building2 className={cn("w-5 h-5", inviteFormData.propertyScope === propertyScope.value && "theme-layer-secondary")} />
+                                    <span className={cn("", inviteFormData.propertyScope === propertyScope.value && "theme-layer-secondary")}>
                                         {propertyScope.label}
                                     </span>
                                 </button>
@@ -95,9 +95,9 @@ export const InvitePage: React.FC<IInvitePageProps> = ({ onSubmit }) => {
 
                 {
                     inviteFormData.propertyScope === PropertyScope.ALL && (
-                        <div className="flex gap-3 bg-(--container-sub-nav-bg-hover) rounded-lg p-4 mb-6">
-                            <div className="w-8 h-8 rounded-full bg-(--container-sub-nav-bg-hover) border border-(--container-sub-nav-br-hover) flex items-center justify-center shrink-0">
-                                <CheckCircle className="w-4 h-4 text-(--container-sub-nav-fg-active)" />
+                        <div className="theme-layer-secondary-hover flex gap-3 rounded-lg p-4 mb-6">
+                            <div className="theme-layer-secondary-hover-border w-8 h-8 rounded-full flex items-center justify-center shrink-0">
+                                <CheckCircle className="theme-layer-primary w-4 h-4" />
                             </div>
                             <div>
                                 <p className="text-sm font-bold">Grant access to all properties</p>
@@ -112,12 +112,12 @@ export const InvitePage: React.FC<IInvitePageProps> = ({ onSubmit }) => {
                 {
                     inviteFormData.propertyScope === PropertyScope.SPECIFIC && (
                         <>
-                            <div className="flex gap-3 bg-(--container-sub-nav-bg-hover) rounded-lg p-4 mb-6">
-                                <div className="w-8 h-8 rounded-full bg-(--container-sub-nav-bg-hover) border border-(--container-sub-nav-br-hover) flex items-center justify-center shrink-0">
-                                    <CheckCircle className="w-4 h-4 text-(--container-sub-nav-fg-active)" />
+                            <div className="theme-layer-secondary-hover flex gap-3 rounded-lg p-4 mb-6">
+                                <div className="w-8 h-8 rounded-full theme-layer-secondary-hover-border flex items-center justify-center shrink-0">
+                                    <CheckCircle className="theme-layer-primary w-4 h-4" />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-bold">Grant access to specific properties</p>
+                                    <p className="font-bold">Grant access to specific properties</p>
                                     <p className="text-xs mt-1">
                                         You can grant access to <strong>individual properties</strong> they can manage
                                     </p>
@@ -126,23 +126,23 @@ export const InvitePage: React.FC<IInvitePageProps> = ({ onSubmit }) => {
 
                             < div
                                 className={cn(
-                                    "border rounded-lg transition-all cursor-pointer",
-                                    "border-(--container-br) rounded-b-none",
+                                    "rounded-lg transition-all cursor-pointer",
+                                    "theme-layer-border-top rounded-b-none",
                                 )}
                             >
                                 <div className="flex flex-wrap items-center gap-2 p-2 min-h-11">
                                     {
                                         inviteFormData.selectedProperties?.length === 0 && (
-                                            <span className="text-xs text-(--container-sub-nav-fg-inactive)">No properties selected. Please select properties from the list below.</span>
+                                            <span className="text-xs">No properties selected. Please select properties from the list below.</span>
                                         )
                                     }
                                     {inviteFormData.selectedProperties?.map((prop) => (
-                                        <div key={prop.propertyId} className="flex items-center gap-1 text-(--container-sub-nav-fg) bg-(--container-sub-nav-bg-hover) text-xs rounded px-2 py-1">
+                                        <div key={prop.propertyId} className="theme-layer-secondary-hover hover:theme-layer-secondary-hover-border flex items-center gap-1 rounded px-2 py-1">
                                             {prop.name}
                                             <button
                                                 type="button"
                                                 onClick={() => handleRemoveProperty(prop)}
-                                                className="w-3 h-3 rounded-full bg-(--container-sub-nav-bg-hover) flex items-center justify-center text-(--container-fg) hover:bg-(--container-sub-nav-br-hover) transition-colors"
+                                                className="w-3 h-3 rounded-full flex items-center justify-center transition-colors"
                                             >
                                                 <Trash2 className="w-3 h-3" />
                                             </button>
@@ -150,9 +150,9 @@ export const InvitePage: React.FC<IInvitePageProps> = ({ onSubmit }) => {
                                     ))}
                                 </div>
 
-                                <div className="border-t border-(--container-br) bg-(--container-bg) rounded-b-lg">
-                                    {selectedProperties.length > 5 && (
-                                        <div className="p-2 border-b border-(--container-br)">
+                                <div className="theme-layer theme-layer-border rounded-b-lg">
+                                    {/* {selectedProperties.length > 5 && (
+                                        <div className="p-2 theme-layer-border-bottom">
                                             <div className="relative">
                                                 <Search className="absolute left-2 top-1/2 -translate-y-1/2 w-3 h-3 text-(--container-sub-nav-fg-inactive) pointer-events-none" />
                                                 <input
@@ -160,11 +160,11 @@ export const InvitePage: React.FC<IInvitePageProps> = ({ onSubmit }) => {
                                                     placeholder="Search properties..."
                                                     value={searchInput}
                                                     onChange={(e) => setSearchInput(e.target.value)}
-                                                    className="w-full pl-7 pr-2 py-1 text-xs bg-(--container-sub-nav-bg) text-(--container-sub-nav-fg) placeholder-(--container-sub-nav-fg-inactive) rounded outline-none"
+                                                    className="tw-full pl-7 pr-2 py-1 text-xs placeholder-(--container-sub-nav-fg-inactive) rounded outline-none"
                                                 />
                                             </div>
                                         </div>
-                                    )}
+                                    )} */}
 
                                     <div className="max-h-48 overflow-y-auto">
                                         {getFilterProperties().map((prop) => (
@@ -175,7 +175,7 @@ export const InvitePage: React.FC<IInvitePageProps> = ({ onSubmit }) => {
                                                     handleAddProperty(prop);
                                                     setSearchInput("");
                                                 }}
-                                                className="w-full text-left px-3 py-2 hover:bg-(--container-sub-nav-bg-hover) text-sm text-(--container-sub-nav-fg) flex items-center justify-between cursor-pointer"
+                                                className="w-full text-left px-3 py-2 hover:theme-layer-secondary-hover flex items-center justify-between cursor-pointer"
                                             >
                                                 <span>{prop.name}</span>
                                                 {
@@ -200,25 +200,25 @@ export const InvitePage: React.FC<IInvitePageProps> = ({ onSubmit }) => {
             <ContentTitle title="Invite User" description="Add a new team member to your organization" />
 
             {/* Form Card */}
-            <div className="t-card max-w-2xl">
+            <div className="theme-card max-w-2xl">
                 <form onSubmit={handleSubmit}>
                     <div className="mb-6">
-                        <label className="flex items-center gap-1 text-sm text-(--container-fg) mb-2">
+                        <label className="flex items-center gap-1 mb-2">
                             Full Name
                         </label>
                         <Input type="text" placeholder="John Doe" value={inviteFormData.fullName} onChange={(e) => setInviteFormData({ ...inviteFormData, fullName: e.target.value })} />
                     </div>
 
                     <div className="mb-6">
-                        <label className="flex items-center gap-1 text-sm text-(--container-fg) mb-2">
+                        <label className="flex items-center gap-1  mb-2">
                             Email
-                            <Info className="w-4 h-4 text-(--container-fg) cursor-help" />
+                            <Info className="w-4 h-4 cursor-help" />
                         </label>
                         <Input type="email" placeholder="john@example.com" value={inviteFormData.email} onChange={(e) => setInviteFormData({ ...inviteFormData, email: e.target.value })} />
                     </div>
 
                     <div className="mb-6">
-                        <label className="flex items-center gap-1 text-sm text-(--container-fg) mb-2">
+                        <label className="flex items-center gap-1 mb-2">
                             Role
                         </label>
                         <ReactSelect

@@ -48,7 +48,7 @@ const RolesPage = () => {
                 <Button icon={FilterIcon} label="Filter" onClick={() => { }} />
             </div>
 
-            <div className="t-card rounded-xl overflow-hidden mb-8">
+            <div className="theme-card rounded-xl overflow-hidden mb-8">
                 {/* Table Header */}
                 <div className="grid pb-4 text-xs border-b border-[#1E2D42]" style={{ gridTemplateColumns: "2.5fr 1.8fr 1.8fr 1.6fr" }}>
                     <span>ROLE NAME</span>
@@ -58,7 +58,7 @@ const RolesPage = () => {
                 </div>
 
                 {roles.map((role) => (
-                    <div className="py-2 text-sm grid items-center border-b border-(--container-br) last:border-b-0 hover:bg-[#3B82F6]/5 transition-colors" style={{ gridTemplateColumns: "2.5fr 1.8fr 1.8fr 1.6fr" }} key={role.id}>
+                    <div className="py-2 text-sm grid items-center theme-layer-border-bottom last:border-b-0 hover:bg-[#3B82F6]/5 transition-colors" style={{ gridTemplateColumns: "2.5fr 1.8fr 1.8fr 1.6fr" }} key={role.id}>
                         <div className="flex items-center gap-2">
                             <div
                                 className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 gap-2"
@@ -66,15 +66,15 @@ const RolesPage = () => {
                             >
                                 <role.icon className="w-4 h-4" style={{ color: role.iconColor }} />
                             </div>
-                            <span className="text-sm text-(--container-sub-nav-fg-hover)">{role.name}</span>
+                            <span className="theme-layer-secondary">{role.name}</span>
                         </div>
 
                         <div className="flex items-center gap-2">
-                            <span className="text-(-container-sub-nav-fg-hover)">{role.usersCount}</span>
-                            <span className="text-(--container-fg)">active users</span>
+                            <span className="theme-layer-secondary">{role.usersCount}</span>
+                            <span>active users</span>
                         </div>
 
-                        <div className="text-(--container-fg)">{role.lastUpdated}</div>
+                        <div className="theme-layer-secondary">{role.lastUpdated}</div>
 
                         <div className="flex justify-end">
                             <Button
@@ -111,13 +111,13 @@ const RolesPage = () => {
             </div>
 
 
-            <div className="bg-(--container-bg) border border-(--container-br) rounded-xl p-6 flex items-start gap-4">
+            <div className="theme-layer theme-layer-border rounded-xl p-6 flex items-start gap-4">
                 <div className="">
-                    <Info className="w-4 h-4 text-(--container-sub-nav-fg-hover)" />
+                    <Info className="w-4 h-4 theme-layer-secondary" />
                 </div>
                 <div>
-                    <div className="text-(--container-sub-nav-fg-hover) font-bold mb-1.5">Permission Auditing</div>
-                    <div className="text-(--container-fg) leading-relaxed">
+                    <div className="theme-layer-secondary font-bold mb-1.5">Permission Auditing</div>
+                    <div className="leading-relaxed">
                         Changes to system roles are logged in the Global Activity Feed. We recommend reviewing
                         high-level permissions monthly to maintain enterprise security compliance standards.
                     </div>

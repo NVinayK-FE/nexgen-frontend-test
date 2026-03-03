@@ -6,7 +6,7 @@ interface ISubNavContainerProps {
 
 const SubNavContainer: React.FC<ISubNavContainerProps> = ({ children, className }) => {
     return (
-        <div className={cn("t-container-sub-nav w-68 flex flex-col px-4 py-6 h-full", className)}>
+        <div className={cn("theme-layer w-68 flex flex-col px-4 py-6 h-full", className)}>
             {children}
         </div>
     );

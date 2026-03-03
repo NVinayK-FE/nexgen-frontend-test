@@ -10,13 +10,13 @@ const ChangeEmailPage: React.FC = () => {
     const [newEmail, setNewEmail] = useState("");
 
     return (
-        <div className="t-card max-w-2xl">
+        <div className="theme-card max-w-2xl">
             <div className="flex items-start gap-4 mb-8">
-                <div className="w-12 h-12 rounded-lg bg-(--container-sub-nav-bg-hover) flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-(--container-sub-nav-bg-active)" />
+                <div className="theme-layer-primary-hover w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
+                    <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                    <h3 className="text-(--container-sub-nav-fg-hover) text-xl font-bold mb-1 text-left">Update Email Address</h3>
+                    <h3 className="theme-layer-secondary text-xl font-bold mb-1 text-left">Update Email Address</h3>
                     <p className="text-sm text-left">Change the email associated with your NexGen Guest account.</p>
                 </div>
             </div>

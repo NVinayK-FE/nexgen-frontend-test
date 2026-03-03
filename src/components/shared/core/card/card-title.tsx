@@ -6,7 +6,7 @@ interface ICardTitleProps {
 
 const CardTitle: React.FC<ICardTitleProps> = ({ title, className }: ICardTitleProps) => {
   return (
-    <div className={cn("text-(--container-sub-nav-fg-hover)", className)}>
+    <div className={cn("theme-layer-secondary", className)}>
       {title}
     </div>
   );

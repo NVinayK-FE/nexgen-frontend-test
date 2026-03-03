@@ -84,7 +84,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
     return (
         <FlexCol>
-            <div className="text-(--container-sub-nav-fg-hover) w-full text-center py-2 pb-4">Sign in to your account
+            <div className="theme-layer-secondary w-full text-center py-2 pb-4">
+                Sign in to your account
             </div>
 
             <Form {...form}>
