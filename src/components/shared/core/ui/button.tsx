@@ -3,25 +3,25 @@
 import { cn } from "@/lib/cn";
 import { LucideIcon } from "lucide-react";
 
-
 interface IButtonProps {
     onClick?: () => void;
     icon?: LucideIcon
     label?: string;
     className?: string;
-    buttonVariant?: "default" | "ghost" | "outline" | "active" | 'tertiary';
+    buttonVariant?: "default" | "ghost" | "outline" | "active" | 'tertiary' | 'base';
 }
-
 
 const Button: React.FC<IButtonProps> = ({ onClick, icon: Icon, label, className, buttonVariant = "default" }) => {
     return (
         <button onClick={onClick} className={
-            cn("inline-flex items-center gap-2 text-sm px-3 py-2 rounded-lg transition-all whitespace-nowrap cursor-pointer border border-transparent",
+            cn(`inline-flex items-center gap-2 text-sm px-3 py-2 rounded-lg transition-all whitespace-nowrap 
+                cursor-pointer border border-transparent`,
                 buttonVariant === "default" && "hover:theme-layer-secondary-hover-border",
                 buttonVariant === "ghost" && "hover:theme-layer-secondary-hover-border",
-                buttonVariant === "outline" && "theme-layer-secondary-hover hover:theme-layer-secondary-hover-border",
-                buttonVariant === "active" && "theme-layer-primary-active hover:theme-layer-primary-active-border",
+                buttonVariant === "outline" && "theme-layer-secondary-hover hover:border-(--color-layer-secondary-active)",
+                buttonVariant === "active" && "theme-layer-primary-active hover:border-(--color-layer-primary-active)",
                 buttonVariant === "tertiary" && "text-(--color-layer-tertiary)",
+                buttonVariant === "base" && "theme-layer hover:theme-layer-primary-hover-border focus:theme-layer-primary-hover-border",
                 className)}>
             {Icon && <Icon className="w-4 h-4" />}
             {label && <span>{label}</span>}

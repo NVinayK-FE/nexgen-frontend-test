@@ -25,7 +25,7 @@ const ChangePasswordPage = () => {
                     <Lock className="w-6 h-6" />
                 </div>
                 <div>
-                    <h3 className="theme-layer-secondary text-xl font-bold mb-1 text-left">Update Password</h3>
+                    <h3 className="theme-layer-primary text-xl font-bold mb-1 text-left">Update Password</h3>
                     <p className="text-sm text-left">Strengthen your account security by updating your password.</p>
                 </div>
             </div>
@@ -53,7 +53,7 @@ const ChangePasswordPage = () => {
                             icon={showPassword ? EyeOff : Eye}
                             onClick={() => setShowPassword(!showPassword)}
                             buttonVariant="tertiary"
-                            className="absolute right-4 top-1/2 -translate-y-1/2"
+                            className="absolute right-4 top-1/2 -translate-y-1/2 text-(--color-layer-placeholder)"
                         />
                     </div>
                 </div>
@@ -79,7 +79,7 @@ const ChangePasswordPage = () => {
                                 icon={showPassword ? EyeOff : Eye}
                                 onClick={() => setShowPassword(!showPassword)}
                                 buttonVariant="tertiary"
-                                className="absolute right-4 top-1/2 -translate-y-1/2"
+                                className="absolute right-4 top-1/2 -translate-y-1/2 text-(--color-layer-placeholder)"
                             />
                         </div>
                     </div>
@@ -113,7 +113,8 @@ const ChangePasswordPage = () => {
                     <p className="text-left">Password must be at least 8 characters and include uppercase, lowercase, number, and special character.</p>
                 </div>
 
-                <div className="flex justify-end mt-6">
+                <div className="flex justify-end mt-6 gap-2">
+                    <Button label="Cancel" buttonVariant="outline" />
                     <Button label="Update Password" buttonVariant="active" />
                 </div>
             </form>

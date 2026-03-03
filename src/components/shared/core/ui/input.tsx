@@ -11,6 +11,7 @@ interface InputProps extends React.ComponentProps<'input'> {
     placeholder?: string;
     pattern?: string;
     className?: string;
+    inputVariant?: 'default' | 'base';
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -22,6 +23,7 @@ function Input({
     placeholder = '',
     pattern,
     className = '',
+    inputVariant = 'default',
     onChange,
     ...props
 }: InputProps) {
@@ -36,9 +38,11 @@ function Input({
                 value={value}
                 onChange={onChange}
                 className={cn(`theme-layer-border w-full px-3 py-2 rounded-lg 
-                    placeholder-(--color-layer-tertiary) outline-none transition-all
+                    placeholder-(--color-layer-placeholder) outline-none transition-all
                     hover:theme-layer-secondary-hover-border
                     focus:theme-layer-secondary-hover-border`,
+                    inputVariant === 'base' && `theme-layer
+                        hover:theme-layer-primary-hover-border focus:theme-layer-primary-hover-border`,
                     className)}
             />
         </div>

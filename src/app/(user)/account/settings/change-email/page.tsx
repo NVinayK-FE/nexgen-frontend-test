@@ -16,7 +16,7 @@ const ChangeEmailPage: React.FC = () => {
                     <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                    <h3 className="theme-layer-secondary text-xl font-bold mb-1 text-left">Update Email Address</h3>
+                    <h3 className="theme-layer-primary text-xl font-bold mb-1 text-left">Update Email Address</h3>
                     <p className="text-sm text-left">Change the email associated with your NexGen Guest account.</p>
                 </div>
             </div>
@@ -27,7 +27,7 @@ const ChangeEmailPage: React.FC = () => {
                         htmlFor="current-email"
                         className="block text-xs font-medium mb-2 text-left"
                     >
-                        Current Email
+                        CURRENT EMAIL
                     </label>
                     <Input
                         type="email"
@@ -45,7 +45,7 @@ const ChangeEmailPage: React.FC = () => {
                         htmlFor="new-email"
                         className="block text-xs font-medium mb-2 text-left"
                     >
-                        New Email Address
+                        NEW EMAIL ADDRESS
                     </label>
                     <Input
                         type="email"

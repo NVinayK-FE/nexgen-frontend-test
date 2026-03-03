@@ -179,22 +179,25 @@ const UsersListPage: React.FC = () => {
             </div>
 
             <div className="flex gap-3">
-                <div className="theme-layer relative flex-1">
-                    <SearchIcon className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2" />
+                <div className="relative flex-1">
+                    {/* <SearchIcon className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2" /> */}
                     <Input
                         type="text"
                         placeholder="Search users by name, email or role..."
                         value={searchTerm}
+                        inputVariant="base"
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
                 </div>
                 <Button
                     icon={ListFilter}
                     onClick={() => { }}
+                    buttonVariant="base"
                     label="Filters"
                 />
                 <Button
                     icon={Download}
+                    buttonVariant="base"
                     onClick={() => { }}
                     label="Export"
                 />
@@ -205,9 +208,9 @@ const UsersListPage: React.FC = () => {
                     <colgroup>
                         <col className="w-[29%]" />
                         <col className="w-[25%]" />
-                        <col className="w-[14%]" />
+                        <col className="w-[20%]" />
                         <col className="w-[16%]" />
-                        <col className="w-[16%]" />
+                        <col className="w-[10%]" />
                     </colgroup>
                     <thead>
                         <tr className="theme-layer-border-bottom">

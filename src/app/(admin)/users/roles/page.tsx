@@ -32,20 +32,21 @@ const RolesPage = () => {
             <div className="flex items-start justify-between mb-8">
                 <ContentTitle title="Role Management"
                     description="Define and manage system-wide access levels and user permissions." />
-                <Button icon={Plus} label="Create New Role" />
+                <Button icon={Plus} label="Create New Role" buttonVariant="active" />
             </div>
 
             <div className="flex gap-3 mb-6">
                 <div className="flex-1">
                     <Input
                         type="text"
-                        icon={SearchIcon}
+                        // icon={SearchIcon}
+                        inputVariant="base"
                         placeholder="Search roles by name or status..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
                 </div>
-                <Button icon={FilterIcon} label="Filter" onClick={() => { }} />
+                <Button icon={FilterIcon} label="Filter" buttonVariant="base" onClick={() => { }} />
             </div>
 
             <div className="theme-card rounded-xl overflow-hidden mb-8">

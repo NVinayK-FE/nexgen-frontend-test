@@ -125,6 +125,7 @@
 
     --color-layer: #1E293B;
     --color-layer-tertiary: #475569;
+    --color-layer-placeholder: #3b4452;
 
     --color-layer-primary: #94a3b8;
     --color-layer-primary-hover: #3b82f614;
@@ -153,7 +154,7 @@
 }
 
 @utility theme-layer-divider {
-  @apply bg-(--color-layer-tertiary) h-px w-full;
+  @apply bg-(--color-border-tertiary) h-px w-full;
 }
 
 @utility theme-layer-border {
@@ -189,7 +190,7 @@
 }
 
 @utility theme-layer-primary-active-border {
-  @apply theme-layer-primary-active border border-(--color-layer-primary-hover);
+  @apply theme-layer-primary-active border border-(--color-layer-primary-active);
 }
 
 @utility theme-layer-secondary {

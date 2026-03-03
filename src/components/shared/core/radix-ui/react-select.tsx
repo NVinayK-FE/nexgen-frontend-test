@@ -31,9 +31,9 @@ const ReactSelect: React.FC<IReactSelectProps> = ({
                     focus-visible:theme-layer-secondary-hover-border 
                     data-[state=open]:theme-layer data-[state=open]:rounded-bl-none data-[state=open]:rounded-br-none data-[state=open]:border-t`}
             >
-                <Select.Value placeholder={placeholder} />
+                <Select.Value placeholder={placeholder} className="text-(--color-layer-placeholder)" />
                 <Select.Icon>
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className="w-4 h-4 text-(--color-layer-placeholder)" />
                 </Select.Icon>
             </Select.Trigger>
             <Select.Portal>
