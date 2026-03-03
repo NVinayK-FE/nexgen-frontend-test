@@ -1,8 +1,8 @@
 {
     "name": "dark",
     "colors": {
-        "--page-bg": "#020617",
-        "--page-fg": "#ededed",
+        "--color-base": "#020617",
+        "--color-base-secondary": "#ededed",
         "--card-bg": "#202A38",
         "--card-border": "#334155",
         "--card-fg": "#90A1B9",

@@ -1,5 +1,5 @@
 import { ROUTES } from "@/data/route";
-import { LucideIcon, Mail, Lock, Users, Shield, UserPlus } from "lucide-react";
+import { LucideIcon, Mail, Lock, Users, Shield, UserPlus, Palette } from "lucide-react";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export interface ISubNavItem {
@@ -22,6 +22,12 @@ export const getAccountSettingSubNavItems = (pathname: string): ISubNavItem[] =>
         active: pathname === ROUTES.CHANGE_EMAIL,
         icon: Mail,
         goToPage: (router: AppRouterInstance) => router.push(ROUTES.CHANGE_EMAIL),
+    },
+    {
+        label: "Theme Settings",
+        active: pathname === ROUTES.THEME_SETTINGS,
+        icon: Palette,
+        goToPage: (router: AppRouterInstance) => router.push(ROUTES.THEME_SETTINGS),
     }
 ]
 

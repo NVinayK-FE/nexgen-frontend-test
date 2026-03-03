@@ -57,7 +57,7 @@ export const InviteUserForm: React.FC<InviteUserFormProps> = ({ onSubmit }) => {
     };
 
     return (
-        <div className="min-h-screen t-page">
+        <div className="min-h-screen theme-base">
             {/* Page Header */}
             <div className="mb-8">
                 <h1 className="text-4xl font-bold text-slate-100 mb-1">Invite User</h1>
@@ -65,7 +65,7 @@ export const InviteUserForm: React.FC<InviteUserFormProps> = ({ onSubmit }) => {
             </div>
 
             {/* Form Card */}
-            <div className="t-card max-w-2xl">
+            <div className="theme-card max-w-2xl">
                 <form onSubmit={handleSubmit} className="space-y-0">
                     {/* Personal Information Section */}
                     <div className="p-8 border-b border-slate-800/50">

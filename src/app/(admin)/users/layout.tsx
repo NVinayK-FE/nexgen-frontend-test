@@ -32,7 +32,7 @@ const UsersLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <BackToDashboard />
                 <SubNavTitle title="USER MANAGEMENT" />
                 <SubNavItems subNavItems={subNavItems} router={router} />
-                <Divider />
+                <Divider className="mb-2" />
                 <SubNavItems subNavItems={subNavItems2} router={router} />
             </SubNavContainer>
             <FlexGrow className="t-max-h-screen-header p-9 overflow-y-auto">

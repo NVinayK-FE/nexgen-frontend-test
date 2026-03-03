@@ -1,6 +1,12 @@
-const Divider = () => {
+import { cn } from "@/lib/cn";
+
+interface IDividerProps {
+    className?: string;
+}
+
+const Divider: React.FC<IDividerProps> = ({ className }: IDividerProps) => {
     return (
-        <div className="h-px bg-(--container-br) my-2" />
+        <div className={cn("theme-layer-divider my-1", className)} />
     );
 }
 

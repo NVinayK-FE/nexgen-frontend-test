@@ -11,4 +11,5 @@ export const ROUTES: Record<string, string> = {
 
     CHANGE_PASSWORD: "/account/settings/change-password",
     CHANGE_EMAIL: "/account/settings/change-email",
+    THEME_SETTINGS: "/account/settings/theme-settings",
 }
