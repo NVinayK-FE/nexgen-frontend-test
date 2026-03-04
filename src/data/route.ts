@@ -9,7 +9,7 @@ export const ROUTES: Record<string, string> = {
 
     CONVERSATION: "/conversation",
 
-    CHANGE_PASSWORD: "/account/settings/change-password",
-    CHANGE_EMAIL: "/account/settings/change-email",
+    PASSWORD_SETTINGS: "/account/settings/password-settings",
+    EMAIL_SETTINGS: "/account/settings/email-settings",
     THEME_SETTINGS: "/account/settings/theme-settings",
 }

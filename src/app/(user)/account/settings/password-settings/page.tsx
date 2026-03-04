@@ -15,7 +15,6 @@ const ChangePasswordPage = () => {
 
     const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Handle password change logic here
     };
 
     return (
@@ -25,8 +24,8 @@ const ChangePasswordPage = () => {
                     <Lock className="w-6 h-6" />
                 </div>
                 <div>
-                    <h3 className="theme-layer-primary text-xl font-bold mb-1 text-left">Update Password</h3>
-                    <p className="text-sm text-left">Strengthen your account security by updating your password.</p>
+                    <h3 className="theme-layer-secondary text-xl font-bold mb-1 text-left">Password Settings</h3>
+                    <p>Strengthen your account security by updating your password.</p>
                 </div>
             </div>
 
@@ -102,20 +101,20 @@ const ChangePasswordPage = () => {
                                 icon={showPassword ? EyeOff : Eye}
                                 onClick={() => setShowPassword(!showPassword)}
                                 buttonVariant="tertiary"
-                                className="absolute right-4 top-1/2 -translate-y-1/2"
+                                className="absolute right-4 top-1/2 -translate-y-1/2 text-(--color-layer-placeholder)"
                             />
                         </div>
                     </div>
                 </div>
 
-                <div className="flex items-start gap-2 text-sm text-left">
+                <div className="flex items-start gap-2 text-(--color-layer-placeholder)">
                     <Info className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                    <p className="text-left">Password must be at least 8 characters and include uppercase, lowercase, number, and special character.</p>
+                    <p>Password must be at least 8 characters and include uppercase, lowercase, number, and special character.</p>
                 </div>
 
                 <div className="flex justify-end mt-6 gap-2">
                     <Button label="Cancel" buttonVariant="outline" />
-                    <Button label="Update Password" buttonVariant="active" />
+                    <Button label="Update" buttonVariant="active" />
                 </div>
             </form>
         </div>

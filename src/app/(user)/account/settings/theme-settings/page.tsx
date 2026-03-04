@@ -1,8 +1,6 @@
 
 "use client";
 
-
-
 import { Palette } from "lucide-react";
 import { useThemeStore } from "@/stores/theme-store";
 import { useThemeQuery } from "@/services/theme-service";
@@ -72,8 +70,8 @@ const ThemeSettingsPage = () => {
                     <Palette className="w-6 h-6" />
                 </div>
                 <div>
-                    <h3 className="theme-layer-primary text-xl font-bold mb-1">Theme Settings</h3>
-                    <p className="text-sm">Customize the appearance of your account by updating your theme settings.</p>
+                    <h3 className="theme-layer-secondary text-xl font-bold mb-1">Theme Settings</h3>
+                    <p>Customize the appearance of your account by updating your theme settings.</p>
                 </div>
             </div>
 
