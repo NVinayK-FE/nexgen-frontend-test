@@ -4,7 +4,7 @@ import ContentTitle from "@/components/shared/content/content-title";
 import Input from "@/components/shared/core/ui/input";
 import { mockRoles } from "@/data/roles";
 import Button from "@core/ui/button";
-import { ChevronLeft, ChevronRight, FilterIcon, Info, Plus, SearchIcon } from "lucide-react";
+import { ChevronLeft, ChevronRight, FilterIcon, Info, Plus } from "lucide-react";
 import { useState } from "react";
 
 const RolesPage = () => {

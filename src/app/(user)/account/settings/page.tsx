@@ -1,7 +1,8 @@
+import { ROUTES } from "@/data/route";
 import { redirect } from "next/navigation"
 
 const AccountSettingsPage = () => {
-    redirect("/account/settings/change-password")
+    redirect(ROUTES.PASSWORD_SETTINGS);
 }
 
 export default AccountSettingsPage;

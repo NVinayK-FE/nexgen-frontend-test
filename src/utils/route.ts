@@ -18,9 +18,9 @@ export const goToLogout = (router: AppRouterInstance) => {
 }
 
 export const goToChangePassword = (router: AppRouterInstance) => {
-    router.push(ROUTES.CHANGE_PASSWORD);
+    router.push(ROUTES.PASSWORD_SETTINGS);
 }
 
 export const goToChangeEmail = (router: AppRouterInstance) => {
-    router.push(ROUTES.CHANGE_EMAIL);
+    router.push(ROUTES.EMAIL_SETTINGS);
 }

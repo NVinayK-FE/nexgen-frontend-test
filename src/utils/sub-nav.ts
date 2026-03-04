@@ -12,16 +12,16 @@ export interface ISubNavItem {
 
 export const getAccountSettingSubNavItems = (pathname: string): ISubNavItem[] => [
     {
-        label: "Change Password",
-        active: pathname === ROUTES.CHANGE_PASSWORD,
+        label: "Password Settings",
+        active: pathname === ROUTES.PASSWORD_SETTINGS,
         icon: Lock,
-        goToPage: (router: AppRouterInstance) => router.push(ROUTES.CHANGE_PASSWORD),
+        goToPage: (router: AppRouterInstance) => router.push(ROUTES.PASSWORD_SETTINGS),
     },
     {
-        label: "Change Email",
-        active: pathname === ROUTES.CHANGE_EMAIL,
+        label: "Email Settings",
+        active: pathname === ROUTES.EMAIL_SETTINGS,
         icon: Mail,
-        goToPage: (router: AppRouterInstance) => router.push(ROUTES.CHANGE_EMAIL),
+        goToPage: (router: AppRouterInstance) => router.push(ROUTES.EMAIL_SETTINGS),
     },
     {
         label: "Theme Settings",

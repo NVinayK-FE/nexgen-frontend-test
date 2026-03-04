@@ -32,7 +32,7 @@ const getUsersNavItem = (pathname: string): INavItem => ({
 
 const getSettingsNavItem = (pathname: string): INavItem => ({
     label: "Settings",
-    href: ROUTES.CHANGE_PASSWORD,
+    href: ROUTES.PASSWORD_SETTINGS,
     icon: Settings,
     active: pathname.includes('/account/settings'),
 });
