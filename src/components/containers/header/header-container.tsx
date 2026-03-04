@@ -7,6 +7,7 @@ import Divider from "@/components/shared/divider";
 import { useRouter } from "next/navigation";
 import { goToChangePassword, goToLogout } from "@/utils/route";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import Button from "@/components/shared/core/ui/button";
 
 interface IDropdownItem {
     icon?: LucideIcon;
@@ -32,17 +33,13 @@ const HeaderContainer: React.FC = () => {
 
 
     const DropdownItem = ({ icon: Icon, label, selected, onClick }: IDropdownItem & { onClick?: () => void }) => (
-        <button
-            className={cn(
-                `cursor-pointer w-full text-left flex items-center gap-2 px-3 py-2 rounded-lg transition-colors
-                hover:theme-layer-secondary-hover`,
-                selected && "theme-layer-primary-active"
-            )}
+        <Button
             onClick={onClick}
-        >
-            <span className="w-4 h-4">{Icon && <Icon className="w-4 h-4" />}</span>
-            {label}
-        </button>
+            label={label}
+            icon={Icon}
+            buttonVariant={selected ? "active" : "ghost"}
+            className="w-full"
+        />
     );
 
     return (
@@ -57,7 +54,6 @@ const HeaderContainer: React.FC = () => {
                 />
             </div>
             <div ref={dropdownRef} className="relative flex items-center gap-3 cursor-pointer" onClick={() => setShowUserMenu(!showUserMenu)}>
-                {/* <Img src="https://i.pravatar.cc/150?img=12" alt="Admin" className="w-10 h-10 rounded-full" /> */}
                 <div className="flex flex-col">
                     <span className="theme-layer-secondary font-semibold">Caleb Griffin</span>
                     <span className="text-xs">Admin Access</span>
@@ -65,9 +61,9 @@ const HeaderContainer: React.FC = () => {
                 <ChevronDown className="w-4 h-4 theme-layer-secondary" />
 
                 {showUserMenu && (
-                    <div className="absolute theme-card rounded-tl-none rounded-tr-none right-0 top-[calc(100%+20px)] w-[234px] shadow-2xl p-1.5 z-[9999]">
+                    <div className="absolute gap-2 theme-card rounded-tl-none rounded-tr-none right-0 top-[calc(100%+20px)] w-[234px] shadow-2xl p-1.5 z-[9999]">
                         {/* Hotel switcher */}
-                        <div className="px-1.5 pb-2.5 mb-1">
+                        <div className="flex flex-col px-1.5 pb-2.5 mb-1 gap-2">
                             <p className="text-[0.625rem] font-bold text-[#475569] uppercase tracking-wider ml-1.5 mb-1.5">
                                 Select Hotel
                             </p>

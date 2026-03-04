@@ -151,7 +151,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                                 <FormMessage />
 
                                 <div className="flex flex-row justify-between gap-2 mb-4" >
-                                    <Button label="Forgot Password?" />
+                                    <Button label="Forgot Password?" buttonVariant="ghost" className="text-(--color-layer-placeholder)" />
                                     <Button className="w-[120px] flex justify-center items-center" label="Submit" buttonVariant="active" onClick={onSubmitH} />
                                 </div>
 
