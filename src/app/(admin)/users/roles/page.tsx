@@ -62,20 +62,20 @@ const RolesPage = () => {
                     <div className="py-2 text-sm grid items-center theme-layer-border-bottom last:border-b-0 hover:bg-[#3B82F6]/5 transition-colors" style={{ gridTemplateColumns: "2.5fr 1.8fr 1.8fr 1.6fr" }} key={role.id}>
                         <div className="flex items-center gap-2">
                             <div
-                                className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 gap-2"
+                                className="ml-2 w-6 h-6 rounded-lg flex items-center justify-center shrink-0 gap-2"
                                 style={{ background: role.iconBg, border: `1px solid ${role.iconBg}` }}
                             >
                                 <role.icon className="w-4 h-4" style={{ color: role.iconColor }} />
                             </div>
-                            <span className="theme-layer-secondary">{role.name}</span>
+                            <span>{role.name}</span>
                         </div>
 
                         <div className="flex items-center gap-2">
-                            <span className="theme-layer-secondary">{role.usersCount}</span>
+                            <span className="font-semibold">{role.usersCount}</span>
                             <span>active users</span>
                         </div>
 
-                        <div className="theme-layer-secondary">{role.lastUpdated}</div>
+                        <div>{role.lastUpdated}</div>
 
                         <div className="flex justify-end">
                             <Button
