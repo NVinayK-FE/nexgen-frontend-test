@@ -29,13 +29,13 @@ const RolesPage = () => {
 
     return (
         <div>
-            <div className="flex items-start justify-between mb-8">
+            <div className="flex items-start justify-between mb-3">
                 <ContentTitle title="Role Management"
                     description="Define and manage system-wide access levels and user permissions." />
                 <Button icon={Plus} label="Create New Role" buttonVariant="active" />
             </div>
 
-            <div className="flex gap-3 mb-6">
+            <div className="flex gap-3 mb-5">
                 <div className="flex-1">
                     <Input
                         type="text"
@@ -49,7 +49,7 @@ const RolesPage = () => {
                 <Button icon={FilterIcon} label="Filter" buttonVariant="base" onClick={() => { }} />
             </div>
 
-            <div className="theme-card rounded-xl overflow-hidden mb-8">
+            <div className="theme-card rounded-xl overflow-hidden mb-5">
                 {/* Table Header */}
                 <div className="grid pb-4 text-xs border-b border-[#1E2D42]" style={{ gridTemplateColumns: "2.5fr 1.8fr 1.8fr 1.6fr" }}>
                     <span>ROLE NAME</span>

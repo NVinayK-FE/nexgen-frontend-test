@@ -26,12 +26,12 @@ const ReactSelect: React.FC<IReactSelectProps> = ({
         >
             <Select.Trigger
                 className={`theme-layer-border w-full px-3 py-2 rounded-lg flex items-center justify-between cursor-default
-                    outline-none transition-all
+                    outline-none transition-all text-(--color-layer-placeholder)
                     hover:theme-layer-secondary-hover-border
                     focus-visible:theme-layer-secondary-hover-border 
                     data-[state=open]:theme-layer data-[state=open]:rounded-bl-none data-[state=open]:rounded-br-none data-[state=open]:border-t`}
             >
-                <Select.Value placeholder={placeholder} className="text-(--color-layer-placeholder)" />
+                <Select.Value placeholder={placeholder} />
                 <Select.Icon>
                     <ChevronDown className="w-4 h-4 text-(--color-layer-placeholder)" />
                 </Select.Icon>
