@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Copyright, ArrowLeft, Mail, X } from "lucide-react";
 import Image from "next/image";
-import logoImage from "@/assets/logow.webp";
+// import logoImage from "@/assets/logow.webp";
 import { useRouter } from "next/navigation";
 
 const ResetPasswordForm: React.FC = () => {
@@ -42,7 +42,7 @@ const ResetPasswordForm: React.FC = () => {
           {/* Logo */}
           <div className="relative z-10 text-center mb-8 animate-[fadeInDown_0.8s_ease-out]">
             <Image
-              src={logoImage}
+              src="/logow.webp"
               alt="NexGen Guest"
               width={200}
               height={60}

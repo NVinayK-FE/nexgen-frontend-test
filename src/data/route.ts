@@ -2,6 +2,7 @@ export const ROUTES: Record<string, string> = {
     DASHBOARD: "/dashboard",
     SIGN_IN: "/users/sign_in",
     LOGOUT: "/users/logout",
+    RESET_PASSWORD: "/users/reset-password",
 
     USERS_LIST: "/users/list",
     USERS_ROLES: "/users/roles",
