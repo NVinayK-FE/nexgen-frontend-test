@@ -12,6 +12,7 @@ import { IProperty } from "@/data/property";
 import { Content } from "next/font/google";
 import ContentTitle from "@/components/shared/content/content-title";
 import Button from "@/components/shared/core/ui/button";
+import { useRouter } from "next/navigation";
 
 interface IInvitePageProps {
     onSubmit?: (data: IInviteUserData) => void;
@@ -21,6 +22,7 @@ export const InvitePage: React.FC<IInvitePageProps> = ({ onSubmit }) => {
     const { selectedProperties } = useUserStore().user;
     const [searchInput, setSearchInput] = useState("");
     const [inviteFormData, setInviteFormData] = useState<IInviteUserData>(getDefaultInviteUserData());
+    const router = useRouter();
 
     const getFilterProperties = (): IProperty[] => {
         if (searchInput === "") {
@@ -59,6 +61,7 @@ export const InvitePage: React.FC<IInvitePageProps> = ({ onSubmit }) => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         onSubmit?.({ ...inviteFormData, selectedProperties: inviteFormData.selectedProperties });
+        router.push("/users/invitation-sent");
     };
 
     const PropertyScopeComponent = () => {

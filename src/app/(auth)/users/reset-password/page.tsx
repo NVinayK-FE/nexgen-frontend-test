@@ -1,193 +1,186 @@
 "use client";
 
 import React, { useState } from "react";
-import { Copyright, ArrowLeft, Mail, X } from "lucide-react";
+import { Copyright, ArrowLeft, Mail, X, KeyRound } from "lucide-react";
 import Image from "next/image";
-// import logoImage from "@/assets/logow.webp";
 import { useRouter } from "next/navigation";
+
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { goToSignIn } from "@/utils/route";
 
 const ResetPasswordForm: React.FC = () => {
   const [email, setEmail] = useState("");
   const [showToast, setShowToast] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(true);
 
   const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Password reset requested for:", email);
-
     setShowToast(true);
-
-    setTimeout(() => {
-      setShowToast(false);
-    }, 5000);
+    setTimeout(() => setShowToast(false), 5000);
   };
 
-  const handleBackToLogin = () => {
-    router.push("/");
+  const handleBackToLogin = () => goToSignIn(router);
+
+  const handleOpenChange = (open: boolean) => {
+    setDialogOpen(open);
+    if (!open) router.push("/");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-slate-950 relative overflow-hidden font-['Outfit',-apple-system,BlinkMacSystemFont,sans-serif]">
-
+    <div className="min-h-screen bg-slate-950 font-['Outfit',-apple-system,BlinkMacSystemFont,sans-serif]">
       {/* Radial background */}
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]
-        bg-[radial-gradient(circle_at_center,rgba(30,41,59,0.3)_0%,rgba(30,41,59,0.1)_40%,transparent_70%)]
-        blur-[80px] animate-pulse" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,rgba(30,41,59,0.4)_0%,rgba(2,6,23,0.8)_70%)] pointer-events-none" />
 
-      {/* Card */}
-      <div className="relative w-full max-w-lg z-10 animate-[fadeInUp_0.8s_ease-out_0.2s_both]">
-        <div className="relative bg-[#1E293B] text-[#A7A8A9] py-12 px-12 rounded-3xl shadow-[0_18px_35px_-24px_rgba(148,163,184,0.35)]">
-
-          {/* Logo */}
-          <div className="relative z-10 text-center mb-8 animate-[fadeInDown_0.8s_ease-out]">
-            <Image
-              src="/logow.webp"
-              alt="NexGen Guest"
-              width={200}
-              height={60}
-              className="mx-auto mb-4 opacity-75"
-              priority
-            />
-          </div>
-
-          {/* Title */}
-          <div className="text-center mb-8">
-            <h1 className="text-lg font-bold text-slate-200 mb-3 tracking-wide uppercase">
-              Reset Your Password
-            </h1>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              Enter the email address associated with your<br />
-              account and we'll send you a link to reset your<br />
-              password.
-            </p>
-          </div>
-
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-xs font-medium text-slate-400 mb-2 uppercase tracking-wider text-left"
-              >
-                Email
-              </label>
-
-              <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@nexgenguest.com"
-                required
-                className="w-full px-4 py-3.5 rounded-xl text-sm
-                bg-[#1E293B] border border-slate-600
-                text-slate-50 placeholder:text-slate-500
-                focus:outline-none focus:border-slate-400
-                focus:bg-slate-900 focus:ring-4 focus:ring-slate-400/10
-                transition-all duration-300"
+      <Dialog open={dialogOpen} onOpenChange={handleOpenChange}>
+        <DialogContent
+          className="
+            bg-[#1E293B] border border-slate-700 rounded-3xl
+            shadow-[0_18px_35px_-12px_rgba(0,0,0,0.5)]
+            w-[calc(100%-2rem)] max-w-lg p-0
+            focus:outline-none
+            [&>button.absolute]:text-slate-400
+            [&>button.absolute]:hover:text-slate-50
+            [&>button.absolute]:transition-colors
+          "
+        >
+          {/* Inner flex column — gap controls ALL spacing */}
+          <div className="flex flex-col gap-5 px-12 py-10">
+            {/* Logo */}
+            <div className="flex justify-center">
+              <Image
+                src="/logow.webp"
+                alt="NexGen Guest"
+                width={160}
+                height={48}
+                className="opacity-75"
+                priority
               />
             </div>
 
-            <button
-              type="submit"
-              className="relative w-full py-4 rounded-xl font-medium text-sm
-              uppercase tracking-widest mt-8
-              bg-[#1E293B] border border-slate-600 text-slate-50
-              transition-all duration-300 overflow-hidden group
-              hover:bg-blue-600 hover:border-blue-600 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]"
-            >
-              <span className="relative z-10">Send Reset Link</span>
+            {/* Icon + Title + Description */}
+            <DialogHeader className="flex flex-col items-center gap-3 space-y-0 text-center p-0">
+              {/* <div className="w-11 h-11 rounded-2xl bg-slate-800 border border-slate-600 flex items-center justify-center flex-shrink-0">
+                <KeyRound className="w-5 h-5 text-blue-500" />
+              </div> */}
 
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-              w-0 h-0 rounded-full bg-blue-600/20
-              group-hover:w-[300px] group-hover:h-[300px]
-              transition-all duration-600" />
-            </button>
-          </form>
+              <DialogTitle className="text-base font-bold text-slate-200 tracking-widest uppercase leading-tight">
+                Reset Your Password
+              </DialogTitle>
 
-          {/* Back button */}
-          <div className="text-center mt-6">
+              <DialogDescription className="text-slate-400 text-xs leading-relaxed text-center">
+                Enter the email address associated with your
+                <br />
+                account and we&apos;ll send you a link to reset your
+                <br />
+                password.
+              </DialogDescription>
+            </DialogHeader>
+
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <div className="flex flex-col gap-1.5">
+                <Label
+                  htmlFor="email"
+                  className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest"
+                >
+                  Email
+                </Label>
+                <Input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@nexgenguest.com"
+                  required
+                  className="
+                    h-11 px-4 rounded-xl text-sm
+                    bg-slate-900 border-slate-600
+                    text-slate-50 placeholder:text-slate-500
+                    focus-visible:border-slate-400
+                    focus-visible:ring-2 focus-visible:ring-slate-400/20
+                    transition-all duration-200
+                  "
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="
+                  relative h-11 w-full rounded-xl font-semibold text-xs
+                  uppercase tracking-widest
+                  bg-slate-900 border border-slate-600 text-slate-50
+                  transition-all duration-300 overflow-hidden group
+                  hover:bg-blue-600 hover:border-blue-500
+                  hover:shadow-[0_0_24px_rgba(37,99,235,0.45)]
+                "
+              >
+                <span className="relative z-10">Send Reset Link</span>
+                <span className="absolute inset-0 w-0 group-hover:w-full bg-blue-600 transition-all duration-300 ease-out" />
+              </Button>
+            </form>
+
+            {/* Back to login */}
             <button
               onClick={handleBackToLogin}
-              className="inline-flex items-center gap-2 text-xs text-slate-400 uppercase tracking-wider font-medium hover:text-blue-600 transition-colors"
+              className="flex items-center justify-center gap-2 text-[10px] text-slate-400 uppercase tracking-widest font-semibold hover:text-blue-400 transition-colors"
             >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back to Login</span>
+              <ArrowLeft className="w-3.5 h-3.5" />
+              Back to Login
             </button>
-          </div>
 
-          {/* Footer */}
-          <div className="text-center mt-12">
-            <p className="text-slate-500 text-xs">
-              2026 ALL RIGHTS RESERVED
-              <br />
-              <span className="inline-flex items-center gap-1 mt-1">
+            {/* Footer */}
+            <div className="flex flex-col items-center gap-1 pt-1 border-t border-slate-700/50">
+              <p className="text-slate-600 text-[10px] tracking-wider uppercase">
+                2026 All Rights Reserved
+              </p>
+              <span className="inline-flex items-center gap-1 text-slate-600 text-[10px]">
                 <Copyright className="w-3 h-3" />
                 NexGen Guest Inc.
               </span>
-            </p>
+            </div>
           </div>
-        </div>
-      </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Toast */}
       <div
-        className={`fixed top-8 right-8 bg-[#1E293B] border border-slate-600 border-l-4 border-l-blue-600
-        rounded-xl p-4 shadow-[0_18px_35px_-24px_rgba(148,163,184,0.35)] max-w-md z-50
-        transition-all duration-400 ${
+        className={`fixed top-6 right-6 bg-[#1E293B] border border-slate-700 border-l-4 border-l-blue-600
+        rounded-xl p-4 shadow-xl max-w-xs z-[9999]
+        transition-all duration-500 ease-in-out ${
           showToast
             ? "translate-x-0 opacity-100"
-            : "translate-x-[500px] opacity-0"
+            : "translate-x-[120%] opacity-0 pointer-events-none"
         }`}
       >
-        <div className="flex items-center gap-3">
-          <Mail className="w-5 h-5 text-blue-600 flex-shrink-0" />
-
-          <div className="flex-1">
-            <div className="font-semibold text-slate-200 text-sm uppercase tracking-wider">
+        <div className="flex items-start gap-3">
+          <Mail className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+          <div className="flex flex-col gap-0.5">
+            <span className="font-semibold text-slate-200 text-xs uppercase tracking-wider">
               Email Sent
-            </div>
-
-            <div className="text-slate-400 text-xs mt-0.5">
-              Check your inbox, you will <br />
-              receive a reset link shortly.
-            </div>
+            </span>
+            <span className="text-slate-400 text-xs leading-relaxed">
+              Check your inbox for the reset link.
+            </span>
           </div>
-
           <button
             onClick={() => setShowToast(false)}
-            className="text-slate-400 hover:text-slate-50 transition-colors"
+            className="text-slate-500 hover:text-slate-200 transition-colors ml-auto"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
       </div>
-
-      {/* Animations */}
-      <style jsx>{`
-        @keyframes fadeInDown {
-          0% {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes fadeInUp {
-          0% {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </div>
   );
 };

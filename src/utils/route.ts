@@ -24,3 +24,7 @@ export const goToChangePassword = (router: AppRouterInstance) => {
 export const goToChangeEmail = (router: AppRouterInstance) => {
     router.push(ROUTES.EMAIL_SETTINGS);
 }
+
+export const goToInvitationSent = (router: AppRouterInstance) => {
+    router.push(ROUTES.INVITATION_SENT);
+}

@@ -7,6 +7,7 @@ export const ROUTES: Record<string, string> = {
     USERS_LIST: "/users/list",
     USERS_ROLES: "/users/roles",
     INVITE_USER: "/users/invite",
+    INVITATION_SENT: "/users/invitation-sent",  
 
     CONVERSATION: "/conversation",
 
