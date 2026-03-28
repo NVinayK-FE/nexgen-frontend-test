@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Copyright, ArrowLeft, Mail, X } from "lucide-react";
 import logoImage from "@/assets/logow.webp";
-import StarsEffect from "../../../utils/starseffect";
+// import StarsEffect from "../../../utils/starseffect";
 import { useNavigate } from "react-router-dom";
 
 const ForgetPasswordPage: React.FC = () => {
@@ -38,7 +38,7 @@ const ForgetPasswordPage: React.FC = () => {
                     blur-[80px] animate-pulse" />
 
             {/* Stars effect */}
-            <StarsEffect />
+            {/* <StarsEffect /> */}
 
             {/* Reset Password Card */}
             <div className="relative w-full max-w-lg z-10 animate-[fadeInUp_0.8s_ease-out_0.2s_both]">
